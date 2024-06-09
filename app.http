@@ -1,0 +1,175 @@
+
+GET http://localhost:8000/ok/
+
+###
+GET http://localhost:8000/orders
+###
+GET http://localhost:8000/state
+###
+GET http://localhost:8000/city
+###
+GET http://localhost:8000/category
+###
+GET http://localhost:8000/comment
+###
+GET http://localhost:8000/driver
+###
+GET http://localhost:8000/menuItem
+###
+GET http://localhost:8000/orderMenuItem
+###
+GET http://localhost:8000/orderStatus
+###
+GET http://localhost:8000/statusCatalog
+###
+GET http://localhost:8000/address
+###
+GET http://localhost:8000/restaurantOwner
+###
+GET http://localhost:8000/restaurant
+###
+GET http://localhost:8000/users/3
+###
+put http://localhost:8000/users/1
+###
+DELETE http://localhost:8000/users/1
+###
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+   
+    "name": "everlyn muthoni",
+    "contact_phone": "+254187324234",
+    "phone_verified":true,
+    "email":"eva@gmail.com",
+    "email_verified":true,
+    "confirmation_code":"yeuiw8376",
+    "password":"564748494",
+    "address": "Nairobi, Kenya"
+}
+
+
+###
+POST http://localhost:8000/orders
+Content-Type: application/json
+
+{
+  
+  "estimated_delivery_time": "2024-06-06",
+  "actual_delivery_time": "2024-06-06",
+  "price":345,
+  "discount": 34,
+  "final_price": 345,
+  "comment": "Please leave at the front door.",
+  " restaurant_id" : 1,
+  "delivery_address_id": 1,
+    "user_id" : 2,
+    "driver_id": 1
+}
+###
+POST http://localhost:8000/menuItem
+Content-Type: application/json
+
+{
+  
+   "name":"pilau",
+   " description": "special rice",
+   " ingredients":"rice,meat and salad",
+    "price":250,
+   " active":true,
+    "created_at":"2023-6-8",
+   " updated_at":"2023-6-9",
+    "restaurant_id":3,
+   "category_id":1
+}
+
+
+###
+
+POST http://localhost:8000/restaurantOwner
+Content-Type: application/json
+
+{
+   
+    "owner_id": 2,
+    "restaurant_id": 3
+}
+###
+
+POST http://localhost:8000/state
+Content-Type: application/json
+
+{
+   
+    "name": "kilifi",
+    "code": "25417"
+}
+###
+
+POST http://localhost:8000/orderStatus
+Content-Type: application/json
+
+{
+  
+    " order_id": 13,
+    " status_catalog_id":1,
+    "created_at":"2022-4-6"
+   
+}
+
+###
+
+POST http://localhost:8000/comment
+Content-Type: application/json
+
+{
+    "comment_text":"was sweet",
+    "is_complaint": false,
+    "is_praise": true,
+    "created_at":"2023-5-4",
+    "updated_at":"2024-1-23",
+    "order_id": 11,
+    "user_id": 2
+}
+###
+
+POST http://localhost:8000/category
+Content-Type: application/json
+
+{
+   
+    "name": "ice-cream"
+}
+
+###
+POST http://localhost:8000/orderMenuItem
+Content-Type: application/json
+
+{
+   
+   " quantity": 3,
+    "item_price": 650,
+    "price":2100,
+   "order_id":7,
+    "menu_item_id":2
+}
+###
+POST http://localhost:8000/address
+Content-Type: application/json
+
+{
+   
+    " street_address_1":" 3456trrgh",
+    "street_address_2": "23rerfd",
+   " zip_code":"dfgfe345",
+   " delivery_instructions": "to house 101",
+    "created_at":"2023-3-4",
+   " updated_at":"2023-5-6",
+    "user_id":3,
+    "city_id": 1
+}
+
+
+
+
