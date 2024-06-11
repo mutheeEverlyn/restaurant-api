@@ -13,7 +13,7 @@ GET http://localhost:8000/category
 GET http://localhost:8000/comment
 ###
 GET http://localhost:8000/driver/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODA5ODg5NH0.t4OirTtHehbkGDO-PM3_VfVH8b-HHhHP5Tj-qWT0jdE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODExNzYyM30.vowC9dCDq_nyZAyAlm02VqczSr0BD1Jv53tXI6rB5-I
 ###
 GET http://localhost:8000/menuItem
 ###
@@ -30,10 +30,10 @@ GET http://localhost:8000/restaurantOwner
 GET http://localhost:8000/restaurant
 ###
 GET http://localhost:8000/users/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzE4MDk0MDY3fQ.ZIXQQ74hNlYOtL7Hc19S7equsRVEl5OdiebP8cPJijI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEyMDE5NX0.KbKfg1qWYXI3YbJu0zUlahz2lOmo-08XS5duV-FXS3o
 ###
 GET http://localhost:8000/users
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYW1hdUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgwOTQ1Mjh9.wKeSzsypTm2xXr3CJBqlFWfvyRkCwzcJwAb2LoHJy4c
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODExOTMzOH0.tF_mdBx9-ES35aEQEg4Py91pOCFqe4_Sbbs4DprXzng
 ###
 put http://localhost:8000/users/1
 
@@ -51,18 +51,19 @@ put http://localhost:8000/users/1
 DELETE http://localhost:8000/users/1
 ###
 POST http://localhost:8000/users
+Authorization: 
 Content-Type: application/json
 
 {
    
-    "name": "everlyn muthoni",
+    "name": "edwin",
     "contact_phone": "+254187324234",
     "phone_verified":true,
-    "email":"eva@gmail.com",
+    "email":"edwin@gmail.com",
     "email_verified":true,
-    "confirmation_code":"yeuiw8376",
-    "password":"564748494",
-    "address": "Nairobi, Kenya"
+    "confirmation_code":"w8376",
+    "password":"8494",
+    "address": "Nyeri, Kenya"
 }
 
 
