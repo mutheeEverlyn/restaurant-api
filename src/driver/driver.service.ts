@@ -23,7 +23,7 @@ export const createDriverService = async (driver:any) => {
     return "driver created successfully";
 }
 
-export const updatedriverService = async (id: number, driver: any) => {
+export const updateDriverService = async (id: number, driver: any) => {
     await db.update(tableDriver).set(driver).where(eq(tableDriver.id, id))
     return "driver updated successfully";
 }

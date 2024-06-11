@@ -12,7 +12,8 @@ GET http://localhost:8000/category
 ###
 GET http://localhost:8000/comment
 ###
-GET http://localhost:8000/driver
+GET http://localhost:8000/driver/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODA5ODg5NH0.t4OirTtHehbkGDO-PM3_VfVH8b-HHhHP5Tj-qWT0jdE
 ###
 GET http://localhost:8000/menuItem
 ###
@@ -28,9 +29,24 @@ GET http://localhost:8000/restaurantOwner
 ###
 GET http://localhost:8000/restaurant
 ###
-GET http://localhost:8000/users/3
+GET http://localhost:8000/users/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzE4MDk0MDY3fQ.ZIXQQ74hNlYOtL7Hc19S7equsRVEl5OdiebP8cPJijI
+###
+GET http://localhost:8000/users
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYW1hdUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgwOTQ1Mjh9.wKeSzsypTm2xXr3CJBqlFWfvyRkCwzcJwAb2LoHJy4c
 ###
 put http://localhost:8000/users/1
+
+{
+ "name": "everlyn muthoni",
+    "contact_phone": "+254187324234",
+    "phone_verified":true,
+    "email":"evamso@gmail.com",
+    "email_verified":false,
+    "confirmation_code":"w8376",
+    "password":"564748494",
+    "address": "Nairobi, Kenya"
+}
 ###
 DELETE http://localhost:8000/users/1
 ###
@@ -168,6 +184,21 @@ Content-Type: application/json
     "city_id": 1
 }
 
+###
+POST http://localhost:8000/register
+Content-Type: application/json
 
+{
+     "userId":3,
+     "email":"karen@gmail.com",
+    "password":"123"
+}
 
+###
+POST http://localhost:8000/login
+Content-Type: application/json
 
+{
+    "email":"karen@gmail.com",
+    "password":"123"
+}

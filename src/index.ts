@@ -22,6 +22,7 @@ import { commentRouter } from './comment/comment.router'
 import { cityRouter } from './city/city.router'
 import { categoryRouter } from './category/category.router'
 import { addressRouter } from './address/address.router'
+import { authRouter } from './auth/auth.router'
 
 
 
@@ -68,6 +69,7 @@ app.route("/", commentRouter)   // /comment
 app.route("/", cityRouter)   // /city
 app.route("/", categoryRouter)   // /category
 app.route("/",addressRouter)   // /address
+app.route("/",authRouter) 
 
 
 

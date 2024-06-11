@@ -1,5 +1,5 @@
 
-import{ pgTable,serial,text,integer,timestamp,decimal,boolean,primaryKey} from "drizzle-orm/pg-core";
+import{ pgTable,pgEnum,serial,text,integer,timestamp,decimal,boolean,primaryKey,varchar} from "drizzle-orm/pg-core";
 import {relations} from "drizzle-orm";
 //state table
 export const tableState = pgTable("state",{
@@ -59,10 +59,10 @@ export const tableCity = pgTable("city",{
                 name: text("name"),
                 contact_phone:text("contact_phone"),
                 phone_verified:boolean("phone_verified"),
-                email:text("email"),
+                email:varchar("email"),
                 email_verified:boolean("email_verified"),
                 confirmation_code:text(" confirmation_code"),
-                password:text("password"),
+                password:varchar("password"),
                 created_at:timestamp("created_at",{mode:"string"}).notNull().defaultNow(),
                 updated_at:timestamp( "updated_at",{mode:"string"}).notNull().defaultNow()
                 });
@@ -297,7 +297,27 @@ export const tableCity = pgTable("city",{
               })
             }));
 
+            export const roleEnum = pgEnum("role", ["admin", "user"])
+
+            export const AuthOnTableUsers = pgTable("auth_on_users", {
+                id: serial("id").primaryKey(),
+                userId: integer("user_id").notNull().references(() => tableUsers.id, { onDelete: "cascade" }),
+                password: varchar("password", { length: 100 }),
+                email: varchar("email", { length: 100 }),
+                role: roleEnum("role").default("user")
+            });
+            
+            export const AuthOnUsersRelations = relations(AuthOnTableUsers, ({ one }) => ({
+                user: one(tableUsers, {
+                    fields: [AuthOnTableUsers.userId],
+                    references: [tableUsers.id]
+                })
+            }));
+                    
+
 export type tiState=typeof tableState.$inferInsert;
 export type tiCity=typeof tableCity.$inferInsert;
 export type tsState=typeof tableState.$inferSelect;
 export type tsCity=typeof tableCity.$inferSelect;
+export type TIAuthOnUser = typeof AuthOnTableUsers.$inferInsert;
+export type TSAuthOnUser = typeof AuthOnTableUsers.$inferSelect;

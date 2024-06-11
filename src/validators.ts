@@ -119,3 +119,16 @@ export const orderMenuItemSchema = z.object({
     order_id: z.number(),
     menu_item_id: z.number()
 })
+
+
+export const loginUserSchema = z.object({
+     email: z.string(),
+    password: z.string()
+})
+
+export const registerUserSchema = z.object({
+    userId: z.number(),
+    email: z.string(),
+    password: z.string(),
+    role: z.string().optional(),
+})
