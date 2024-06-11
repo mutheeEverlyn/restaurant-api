@@ -21,7 +21,7 @@ export const getStatusCatalog = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
-    const statusCatalog = await getStatusCatalog( id );
+    const statusCatalog = await getStatusCatalogService(id);
     if (statusCatalog == undefined) {
         return c.text("StatusCatalog not found", 404);
     }
