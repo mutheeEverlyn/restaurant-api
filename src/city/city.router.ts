@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listCity, getCity, createCity, updateCity, deleteCity} from "./city.controller"
+import { listCity, getCity, createCity, updateCity, deleteCity,namesLike} from "./city.controller"
 import { zValidator } from "@hono/zod-validator";
 import { citySchema } from "../validators";
 export const cityRouter = new Hono();
@@ -14,3 +14,5 @@ cityRouter.post("/city", createCity)
 cityRouter.put("/city/:id", updateCity)
 
 cityRouter.delete("/city/:id", deleteCity)
+//names like
+cityRouter.get("/cityNames", namesLike);

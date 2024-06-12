@@ -2,13 +2,18 @@
 GET http://localhost:8000/ok/
 
 ###
-GET http://localhost:8000/orders
+GET https://eveapi.azurewebsites.net/emailVerifiedTrue
+
 ###
-GET http://localhost:8000/state
+GET http://localhost:8000/orderCarYear
 ###
-GET http://localhost:8000/city
+GET http://localhost:8000/limitAddress?limit=1
 ###
-GET http://localhost:8000/category
+GET http://localhost:8000/cityNames?cityName=n
+###
+GET http://localhost:8000/orderPrice?price=500
+###
+GET http://localhost:8000/restaurantAndOwners
 ###
 GET http://localhost:8000/comment
 ###
@@ -29,11 +34,11 @@ GET http://localhost:8000/restaurantOwner
 ###
 GET http://localhost:8000/restaurant
 ###
-GET http://localhost:8000/users/1
+GET http://localhost:8000/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEyMDE5NX0.KbKfg1qWYXI3YbJu0zUlahz2lOmo-08XS5duV-FXS3o
 ###
-GET http://localhost:8000/users
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODExOTMzOH0.tF_mdBx9-ES35aEQEg4Py91pOCFqe4_Sbbs4DprXzng
+GET https://eveapi.azurewebsites.net/users/1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEyMjAwMn0.JLne71fO0dkO8HfhNVNVTeN1NOU8hiRSFr4xEGcae2k
 ###
 put http://localhost:8000/users/1
 
@@ -48,10 +53,11 @@ put http://localhost:8000/users/1
     "address": "Nairobi, Kenya"
 }
 ###
-DELETE http://localhost:8000/users/1
+DELETE http://localhost:8000/users/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDA3ODJ9.W3ZfjlQH6Thq1bOhrQsqIVkkGyU7qXqE0wrYS96NWcE
 ###
 POST http://localhost:8000/users
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDAzMDl9.iDeX4u5N5zAR2uPM7AEmvNFjEwzY5HyxfTWJ77sHEtE
 Content-Type: application/json
 
 {
@@ -73,14 +79,14 @@ Content-Type: application/json
 
 {
   
-  "price": 345,
+  "price": 3405,
   "discount": 34,
-  "final_price": 345,
+  "final_price": 3415,
   "comment": "Please leave at the front door.",
-  "restaurant_id" : 1,
-  "delivery_address_id": 1,
-  "user_id" : 2,
-  "driver_id": 1
+  "restaurant_id" : 2,
+  "delivery_address_id": 2,
+  "user_id" : 1,
+  "driver_id": 2
 }
 ###
 POST http://localhost:8000/menuItem
@@ -88,15 +94,15 @@ Content-Type: application/json
 
 {
   
-   "name":"pilau",
-   " description": "special rice",
-   " ingredients":"rice,meat and salad",
-    "price":250,
+   "name":"mukimo",
+   " description": "special dish",
+   " ingredients":"beans,maize and potatoes",
+    "price":300,
    " active":true,
     "created_at":"2023-6-8",
    " updated_at":"2023-6-9",
-    "restaurant_id":2,
-   "category_id":1
+    "restaurant_id":1,
+   "category_id":2
 }
 
 
@@ -190,9 +196,10 @@ POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-     "userId":3,
+     "userId":4,
      "email":"karen@gmail.com",
-    "password":"123"
+    "password":"123",
+    "role":"admin"
 }
 
 ###

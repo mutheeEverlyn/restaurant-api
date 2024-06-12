@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq,sql } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableDriver} from "../drizzle/schema"
 
@@ -16,6 +16,12 @@ export const getDriverService = async (id: number) => {
     return await db.query.tableDriver.findFirst({
         where: eq(tableDriver.id, id)
     })
+}
+//orderby
+
+export const descCarYear = async () => {
+    const orderCarYear =await db.select().from(tableDriver).orderBy(sql`${tableDriver.car_year} desc `);
+    return orderCarYear;
 }
 
 export const createDriverService = async (driver:any) => {

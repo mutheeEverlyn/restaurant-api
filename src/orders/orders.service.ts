@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq, gt, sql } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableOrders} from "../drizzle/schema"
 
@@ -17,7 +17,11 @@ export const getOrdersService = async (id: number) => {
         where: eq(tableOrders.id, id)
     })
 }
-
+//price>500
+export const orderPrice = async (price: number) => {
+   const orderPrices=await db.select().from(tableOrders).where(sql`${tableOrders.price}> ${price}`);
+    return orderPrices;
+}
 export const createOrdersService = async (orders:any) => {
     await db.insert(tableOrders).values(orders)
     return "order created successfully";

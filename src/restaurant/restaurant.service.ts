@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db";
-import {tableRestaurant} from "../drizzle/schema"
+import { tableRestaurant, tableRestaurantOwner} from "../drizzle/schema"
 
 
 export const restaurantService = async (limit?: number) => {
@@ -17,6 +17,16 @@ export const getRestaurantService = async (id: number) => {
         where: eq(tableRestaurant.id, id)
     })
 }
+//getting restaurants and their owners
+export const getRestaurantAndOwner = async () => {
+    return await db
+      .select({
+        restaurant: tableRestaurant,
+        owner: tableRestaurantOwner,
+      })
+      .from(tableRestaurant)
+      .leftJoin(tableRestaurantOwner, eq(tableRestaurant.id, tableRestaurantOwner.restaurant_id));
+  };
 
 export const createRestaurantService = async (restaurant:any) => {
     await db.insert(tableRestaurant).values(restaurant)

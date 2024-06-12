@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq,sql} from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableComment} from "../drizzle/schema"
 

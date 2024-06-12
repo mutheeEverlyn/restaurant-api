@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listOrders, getOrders, createOrders, updateOrders, deleteOrders } from "./orders.controller"
+import { listOrders, getOrders, createOrders, updateOrders, deleteOrders,priceOrders } from "./orders.controller"
 import { zValidator } from "@hono/zod-validator";
 import { ordersSchema } from "../validators";
 export const ordersRouter = new Hono();
@@ -14,4 +14,5 @@ ordersRouter.post("/orders", createOrders)
 ordersRouter.put("/orders/:id", updateOrders)
 
 ordersRouter.delete("/orders/:id", deleteOrders)
-
+//get price greater than
+ordersRouter.get("/orderPrice", priceOrders);

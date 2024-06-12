@@ -27,6 +27,8 @@ export const getComment = async (c: Context) => {
     }
     return c.json(comment, 200);
 }
+
+
 export const createComment = async (c: Context) => {
     try {
         const comment = await c.req.json();

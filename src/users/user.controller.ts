@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { usersService, getUserService, createUserService, updateUserService, deleteUserService } from "./user.service";
+import { usersService, getUserService, createUserService, updateUserService, deleteUserService ,emailVerified} from "./user.service";
 
 export const listUsers = async (c: Context) => {
     try {
@@ -16,7 +16,15 @@ export const listUsers = async (c: Context) => {
         return c.json({ error: error?.message }, 400)
     }
 }
-
+//email verified-true
+export const emailVerifiedTrue= async (c: Context) => {
+    try {
+        const data = await emailVerified();
+        return c.json(data, 200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+}
 export const getUser = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);

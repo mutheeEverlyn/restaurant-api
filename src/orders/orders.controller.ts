@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { ordersService, getOrdersService, createOrdersService, updateOrdersService, deleteOrdersService } from "./orders.service";
+import { ordersService, getOrdersService, createOrdersService, updateOrdersService, deleteOrdersService,orderPrice } from "./orders.service";
 
 export const listOrders= async (c: Context) => {
     try {
@@ -27,6 +27,21 @@ export const getOrders = async (c: Context) => {
     }
     return c.json(orders, 200);
 }
+//price >500
+export const priceOrders= async (c: Context) => {
+    try {
+        const price = Number(c.req.query('price'))
+
+        const data = await orderPrice(price);
+        if (data == null || data.length == 0) {
+            return c.text("orderPrice not found", 404)
+        }
+        return c.json(data, 200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+}
+
 export const createOrders = async (c: Context) => {
     try {
         const orders = await c.req.json();

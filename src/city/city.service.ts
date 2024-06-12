@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq,ilike,like } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableCity} from "../drizzle/schema"
 
@@ -16,6 +16,11 @@ export const getCityService = async (id: number) => {
     return await db.query.tableCity.findFirst({
         where: eq(tableCity.id, id)
     })
+}
+//getting city with specific names
+export const cityNameLike=async (cityName:string) =>{
+    const name=await db.select().from(tableCity).where(ilike(tableCity.name,`${cityName}%`));
+    return name;
 }
 
 export const createCityService = async (city:any) => {

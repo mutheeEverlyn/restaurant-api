@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listRestaurant, getRestaurant, createRestaurant, updateRestaurant, deleteRestaurant} from "./restaurant.controller"
+import { listRestaurant, getRestaurant, createRestaurant, updateRestaurant, deleteRestaurant,RestaurantAndOwner} from "./restaurant.controller"
 import { zValidator } from "@hono/zod-validator";
 import { restaurantSchema } from "../validators";
 export const restaurantRouter = new Hono();
@@ -14,3 +14,5 @@ restaurantRouter.post("/restaurant", createRestaurant)
 restaurantRouter.put("/restaurant/:id", updateRestaurant)
 
 restaurantRouter.delete("/restaurant/:id", deleteRestaurant)
+//get all restaurant and owners
+restaurantRouter.get("/restaurantAndOwners",RestaurantAndOwner);

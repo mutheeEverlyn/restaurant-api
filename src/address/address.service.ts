@@ -17,6 +17,10 @@ export const getAddressService = async (id: number) => {
         where: eq(tableAddress.id, id)
     })
 }
+//limit
+export const limitAddress = async (limit: number) => {
+    return await db.select().from(tableAddress).limit(limit);
+  };
 
 export const createAddressService = async (address:any) => {
     await db.insert(tableAddress).values(address)

@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listDriver, getDriver, createDriver, updateDriver, deleteDriver } from "./driver.controller"
+import { listDriver, getDriver, createDriver, updateDriver, deleteDriver,carYear } from "./driver.controller"
 import { zValidator } from "@hono/zod-validator";
 import { driverSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth} from "../middleware/bearAuth";
@@ -17,3 +17,5 @@ driverRouter.put("/driver/:id",adminRoleAuth, updateDriver)
 driverRouter.delete("/driver/:id",adminRoleAuth, deleteDriver)
 
 //https:domai.com/driver?limit=10
+//order by
+driverRouter.get("/orderCarYear", carYear);

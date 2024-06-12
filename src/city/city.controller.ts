@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { cityService, getCityService, createCityService, updateCityService, deleteCityService } from "./city.service";
+import { cityService, getCityService, createCityService, updateCityService, deleteCityService,cityNameLike} from "./city.service";
 
 export const listCity= async (c: Context) => {
     try {
@@ -27,6 +27,22 @@ export const getCity = async (c: Context) => {
     }
     return c.json(city, 200);
 }
+//name like
+export const namesLike= async (c: Context) => {
+    try{
+        const cityName = String(c.req.query('cityName'))
+    
+        const data = await cityNameLike(cityName);
+        if (data == null || data.length == 0) {
+            return c.text("cityName not found", 404)
+        }
+        return c.json(data, 200);
+    }catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+    }
+
+
 export const createCity = async (c: Context) => {
     try {
         const city = await c.req.json();

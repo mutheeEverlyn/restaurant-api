@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq} from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableUsers} from "../drizzle/schema"
 
@@ -16,6 +16,11 @@ export const getUserService = async (id: number) => {
     return await db.query.tableUsers.findFirst({
         where: eq(tableUsers.id, id)
     })
+}
+//email not null
+export const emailVerified = async () => {
+    const verified=await db.select().from(tableUsers).where(eq(tableUsers.email_verified ,true))
+    return verified;
 }
 
 export const createUserService = async (user:any) => {

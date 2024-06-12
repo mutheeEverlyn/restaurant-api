@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { driverService, getDriverService, createDriverService, updateDriverService, deleteDriverService } from "./driver.service";
+import { descCarYear,driverService, getDriverService, createDriverService, updateDriverService, deleteDriverService } from "./driver.service";
 
 export const listDriver = async (c: Context) => {
     try {
@@ -26,6 +26,16 @@ export const getDriver = async (c: Context) => {
         return c.text("driver not found", 404);
     }
     return c.json(driver, 200);
+}
+//order by
+export const carYear=async (c: Context) => {
+    try {
+        const data = await descCarYear();
+        return c.json(data, 200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+   
 }
 export const createDriver = async (c: Context) => {
     try {
