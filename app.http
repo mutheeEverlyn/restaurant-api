@@ -34,11 +34,11 @@ GET http://localhost:8000/restaurantOwner
 ###
 GET http://localhost:8000/restaurant
 ###
-GET http://localhost:8000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEyMDE5NX0.KbKfg1qWYXI3YbJu0zUlahz2lOmo-08XS5duV-FXS3o
+GET http://localhost:8000/users/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDQ0NzV9.zrus1TIqhVqnJoVHTd6Y0YN7u6wsbdVpeIQT5A129PY
 ###
-GET https://eveapi.azurewebsites.net/users/1
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEyMjAwMn0.JLne71fO0dkO8HfhNVNVTeN1NOU8hiRSFr4xEGcae2k
+GET http://localhost:8000/users/1
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDQ0NzV9.zrus1TIqhVqnJoVHTd6Y0YN7u6wsbdVpeIQT5A129PY
 ###
 put http://localhost:8000/users/1
 
@@ -196,10 +196,10 @@ POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-     "userId":4,
+     "userId":3,
      "email":"karen@gmail.com",
     "password":"123",
-    "role":"admin"
+    "role":"userAdminRoleAuth"
 }
 
 ###

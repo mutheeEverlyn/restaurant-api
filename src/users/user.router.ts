@@ -8,11 +8,11 @@ export const userRouter = new Hono();
 //get all users      api/users
 userRouter.get("/users",adminRoleAuth, listUsers);
 //get a single user    api/users/1
-userRouter.get("/users/:id",userRoleAuth,userAdminRoleAuth, getUser); 
-//get not null user
+userRouter.get("/users/:id",userAdminRoleAuth, getUser); 
+//get email verified
 userRouter.get("/emailVerifiedTrue",emailVerifiedTrue);
 // create a user 
-userRouter.post("/users",userRoleAuth,userAdminRoleAuth,createUser);  
+userRouter.post("/users",adminRoleAuth,createUser);  
 //update a user
 userRouter.put("/users/:id",adminRoleAuth, updateUser);
 

@@ -297,7 +297,7 @@ export const tableCity = pgTable("city",{
               })
             }));
 
-            export const roleEnum = pgEnum("role", ["admin", "user","userAdmin"])
+            export const roleEnum = pgEnum("role", ["admin", "user","userAdminRoleAuth"])
 
             export const AuthOnTableUsers = pgTable("auth_on_users", {
                 id: serial("id").primaryKey(),

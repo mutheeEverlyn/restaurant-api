@@ -1,32 +1,38 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
-import "dotenv/config"
-import { logger } from 'hono/logger'
-import { csrf } from 'hono/csrf'
-import { trimTrailingSlash } from 'hono/trailing-slash'
-import { timeout } from 'hono/timeout'
-import { HTTPException } from 'hono/http-exception'
-import { prometheus } from '@hono/prometheus'
-
-import { userRouter } from './users/user.router'
-import { stateRouter } from './state/state.router'
-import { statusCatalogRouter } from './statusCatalog/statusCatalog.router'
-import { restaurantOwnerRouter } from './restaurant_owner/restaurantOwner.router'
-import { restaurantRouter } from './restaurant/restaurant.router'
-import { ordersRouter } from './orders/orders.router'
-import { orderStatusRouter } from './order_status/orderStatus.router'
-import { orderMenuItemRouter } from './order_menu_item/orderMenuItem.router'
-import { menuItemRouter } from './menu_item/menuItem.router'
-import { driverRouter } from './driver/driver.router'
-import { commentRouter } from './comment/comment.router'
-import { cityRouter } from './city/city.router'
-import { categoryRouter } from './category/category.router'
-import { addressRouter } from './address/address.router'
-import { authRouter } from './auth/auth.router'
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
+import "dotenv/config";
+import { logger } from 'hono/logger';
+import { csrf } from 'hono/csrf';
+import { trimTrailingSlash } from 'hono/trailing-slash';
+import { timeout } from 'hono/timeout';
+import { HTTPException } from 'hono/http-exception';
+import { prometheus } from '@hono/prometheus';
+import {rateLimiter} from 'hono-rate-limiter';
+import { userRouter } from './users/user.router';
+import { stateRouter } from './state/state.router';
+import { statusCatalogRouter } from './statusCatalog/statusCatalog.router';
+import { restaurantOwnerRouter } from './restaurant_owner/restaurantOwner.router';
+import { restaurantRouter } from './restaurant/restaurant.router';
+import { ordersRouter } from './orders/orders.router';
+import { orderStatusRouter } from './order_status/orderStatus.router';
+import { orderMenuItemRouter } from './order_menu_item/orderMenuItem.router';
+import { menuItemRouter } from './menu_item/menuItem.router';
+import { driverRouter } from './driver/driver.router';
+import { commentRouter } from './comment/comment.router';
+import { cityRouter } from './city/city.router';
+import { categoryRouter } from './category/category.router';
+import { addressRouter } from './address/address.router';
+import { authRouter } from './auth/auth.router';
 
 
 
 const app = new Hono()
+const limiter = rateLimiter({
+windowMs:1 * 60 *1000,
+limit:3,
+standardHeaders: "draft-6",
+keyGenerator :(c) =>"<unique_key>"
+});
 
 const customTimeoutException = () =>
   new HTTPException(408, {
@@ -72,7 +78,7 @@ app.route("/",addressRouter)   // /address
 app.route("/",authRouter) 
 
 
-
+app.use(limiter);
 
 serve({
   fetch: app.fetch,

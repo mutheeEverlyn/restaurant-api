@@ -48,6 +48,9 @@ importers:
       drizzle-kit:
         specifier: ^0.22.2
         version: 0.22.2
+      hono-rate-limiter:
+        specifier: ^0.3.0
+        version: 0.3.0(hono@4.4.3)
       tsx:
         specifier: ^4.7.1
         version: 4.11.2
@@ -706,6 +709,11 @@ packages:
 
   has-unicode@2.0.1:
     resolution: {integrity: sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==}
+
+  hono-rate-limiter@0.3.0:
+    resolution: {integrity: sha512-QUS1N+DCZs8CKjpoHugvEvAp/+e+LUllPPnaIlATK9GyT26niQxn4H4V+O5kHwcsXjD3P3JOc0jMb7fnW6gpFQ==}
+    peerDependencies:
+      hono: ^4.1.1
 
   hono@4.4.3:
     resolution: {integrity: sha512-G7rTruKzrHXPz1KB4B50deKydPA9+aeei+WC1hikP0abN9N+a6yORuweageaqWocYfYNkpoqA5ezGV2mzQasvw==}
@@ -1417,6 +1425,10 @@ snapshots:
       path-is-absolute: 1.0.1
 
   has-unicode@2.0.1: {}
+
+  hono-rate-limiter@0.3.0(hono@4.4.3):
+    dependencies:
+      hono: 4.4.3
 
   hono@4.4.3: {}
 

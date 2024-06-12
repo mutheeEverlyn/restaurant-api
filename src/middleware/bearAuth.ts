@@ -23,11 +23,11 @@ export interface TPayload {
    const decoded=await verifyToken(token,process.env.JWT_SECRET as string);
    if(!decoded) return c.json({error:"invalid token"},401);
 
-   if(decoded.role !== requiredRole) return c.json({error:"unauthorized"},401)
+   if(decoded.role !== requiredRole && decoded.role !="userAdminRoleAuth") return c.json({error:"unauthorized"},401)
    return next();
  }
 
  
  export const adminRoleAuth =async(c: Context,next: Next)=>await authMiddleware(c,next,"admin")
  export const userRoleAuth =async(c: Context,next: Next)=>await authMiddleware(c,next,"user")
- export const userAdminRoleAuth =async(c: Context,next: Next)=>await authMiddleware(c,next,"userAdmin")
+ export const userAdminRoleAuth =async(c: Context,next: Next)=>await authMiddleware(c,next,"userAdminRoleAuth")
