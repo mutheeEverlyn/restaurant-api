@@ -45,7 +45,7 @@ export const namesLike= async (c: Context) => {
 export const getCityWithRestaurant= async (c: Context) => {
     try {
         const data= await cityWithRestaurant();
-        if (data == null || data.length == 0){
+        if (data == null ){
         return c.text("cityWithRestaurant not found", 404);
         }
         return c.json(data,200);

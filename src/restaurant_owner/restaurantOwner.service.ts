@@ -17,12 +17,7 @@ export const getRestaurantOwnerService = async (id: number) => {
         where: eq(tableRestaurantOwner.id, id)
     })
 }
-//between
-export const restaurantIdBetween= async (id1: number,id2:number) => {
-    return await db.query.tableRestaurantOwner.findMany({
-        where: between(tableRestaurantOwner.id, id1,id2)
-    })
-}
+
 
 export const createRestaurantOwnerService = async ( restaurantOwner:any):Promise<string | null>  => {
     await db.insert(tableRestaurantOwner).values( restaurantOwner)
