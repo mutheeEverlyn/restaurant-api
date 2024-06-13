@@ -27,19 +27,7 @@ export const getRestaurantOwner = async (c: Context) => {
     }
     return c.json(restaurantOwner, 200);
 }
-//between
-export const restaurantBetween = async (c: Context) => {
-    const id1 = parseInt(c.req.param("id"));
-    if (isNaN(id1)) return c.text("Invalid ID", 400);
-    const id2= parseInt(c.req.param("id"));
-    if (isNaN(id2)) return c.text("Invalid ID", 400);
 
-    const restaurantId = await restaurantIdBetween(id1,id2);
-    if (restaurantId == undefined) {
-        return c.text("restaurantId not found", 404);
-    }
-    return c.json(restaurantId, 200);
-}
 export const createRestaurantOwner = async (c: Context) => {
     try {
         const restaurantOwner = await c.req.json();
