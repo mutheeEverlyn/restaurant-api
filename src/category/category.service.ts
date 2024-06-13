@@ -17,6 +17,22 @@ export const getCategoryService = async (id: number) => {
         where: eq(tableCategory.id, id)
     })
 }
+//category with menuitem
+export const categoryWithMenuItems= async () => {
+    return await db.query.tableCategory.findMany({
+        columns:{
+         name:true
+        },with:{
+            menu_item:{
+                columns:{
+                    active:true,
+                    price:true,
+                    ingredients:true
+                }
+            }
+        }
+    })
+}
 
 export const createCategoryService = async (category:any) => {
     await db.insert(tableCategory).values(category)

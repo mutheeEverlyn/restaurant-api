@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { addressService, getAddressService, createAddressService, updateAddressService, deleteAddressService,limitAddress } from "./address.service";
+import { addressService, getAddressService, createAddressService, updateAddressService, deleteAddressService,limitAddress,addressWithOrders } from "./address.service";
 
 export const listAddress = async (c: Context) => {
     try {
@@ -41,7 +41,18 @@ export const limit=async(c: Context) =>{
     return c.json({ error: error?.message }, 400)
 }
 }
-
+//address with orders
+export const getAddressWithOrders = async (c: Context) => {
+    try {
+        const data= await addressWithOrders();
+        if (data == null || data.length == 0){
+        return c.text("addressWithOrders not found", 404);
+        }
+        return c.json(data,200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+}
 export const createAddress = async (c: Context) => {
     try {
         const address = await c.req.json();

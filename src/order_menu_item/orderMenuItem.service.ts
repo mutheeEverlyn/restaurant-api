@@ -19,8 +19,18 @@ export const getOrderMenuItemService = async (id: number) => {
 }
 //or gt and lt
 export const orderMenuItem = async (quantity1: number, quantity2: number) => {
-    return await db.execute(sql`select * from ${tableOrderMenuItem} where ${tableOrderMenuItem.quantity} > ${quantity1} || ${tableOrderMenuItem.quantity} < ${quantity2}`)
-}
+    try {
+        const result = await db.execute(sql`
+            SELECT * FROM tableOrderMenuItem 
+            WHERE quantity > ${quantity1} 
+               OR quantity < ${quantity2}
+        `);
+        return result;
+    } catch (error) {
+        console.error('Database query error:', error);
+        throw new Error('Database query failed');
+    }
+};
 export const createOrderMenuItemService = async (orderMenuItem:any) => {
     await db.insert(tableOrderMenuItem).values(orderMenuItem)
     return "orderMenuItem created successfully";

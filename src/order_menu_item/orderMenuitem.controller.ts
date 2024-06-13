@@ -28,17 +28,24 @@ export const getOrderMenuItem = async (c: Context) => {
 }
 //or gt lt
 export const orderGtOrLt = async (c: Context) => {
-    const quantity1 = parseInt(c.req.param("quantity"));
-    if (isNaN(quantity1)) return c.text("Invalid ID", 400);
-    const quantity2= parseInt(c.req.param("id"));
-    if (isNaN(quantity2)) return c.text("Invalid ID", 400);
+    try {
+        const quantity1 = Number(c.req.query('quantity1'));
+        const quantity2 = Number(c.req.query('quantity2'));
 
-    const quantityRange = await orderMenuItem(quantity1,quantity2);
-    if (quantityRange == undefined) {
-        return c.text("restaurantId not found", 404);
+        // Validate the query parameters
+        if (isNaN(quantity1)) return c.text('Invalid quantity1', 400);
+        if (isNaN(quantity2)) return c.text('Invalid quantity2', 400);
+
+        // Execute the database query
+        const quantityRange = await orderMenuItem(quantity1, quantity2);
+        // Return the result as JSON
+        return c.json(quantityRange, 200);
+    } catch (error) {
+        console.error('Error executing database query:', error);
+        // Return an internal server error response
+        return c.text('Internal Server Error', 500);
     }
-    return c.json(quantityRange, 200);
-}
+};
 export const createOrderMenuItem = async (c: Context) => {
     try {
         const orderMenuItem = await c.req.json();

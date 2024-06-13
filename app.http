@@ -2,46 +2,53 @@
 GET http://localhost:8000/ok/
 ###
 GET http://eveapi.azurewebsites.net/withStatusCatalog
-Authorization:
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/stateWithColumns
-Authorization:  
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://eveapi.azurewebsites.net/addressWithOrders
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
 ###
 GET http://eveapi.azurewebsites.net/commentWithUsers
-Authorization: 
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://eveapi.azurewebsites.net/restaurantIdBetween
-Authorization:
+GET http://eveapi.azurewebsites.net/categoryWithMenuItems
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+
 ###
-GET http://eveapi.azurewebsites.net/quantityRange
-Authorization:   
+GET http://eveapi.azurewebsites.net/restaurantIdBetween?id1=1,id2=3
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://eveapi.azurewebsites.net/quantityRange?quantity1=2&quantity2=3
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
 ###
 GET https://eveapi.azurewebsites.net/emailVerifiedTrue
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/orderCarYear
-Authorization: 
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
 ###
 GET http://eveapi.azurewebsites.net/limitAddress?limit=1
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/cityNames?cityName=n
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/orderPrice?price=500
-Authorization: 
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/restaurantAndOwners
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/comment
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://eveapi.azurewebsites.net/driver/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODExNzYyM30.vowC9dCDq_nyZAyAlm02VqczSr0BD1Jv53tXI6rB5-I
+GET http://eveapi.azurewebsites.net/driver/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/menuItem
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://localhost:8000/users/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzMDU5NzB9.4CrE6eMEI3tSDoLGd478sbcLZhYoAn7exHm_BiAKOus
@@ -50,10 +57,10 @@ GET http://localhost:8000/users
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzMDU5NzB9.4CrE6eMEI3tSDoLGd478sbcLZhYoAn7exHm_BiAKOus
 ###
 put http://localhost:8000/users/1
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 
 {
- "name": "everlyn muthoni",
+ "name": "wanjiru",
     "contact_phone": "+254187324234",
     "phone_verified":true,
     "email":"evamso@gmail.com",
@@ -63,11 +70,11 @@ Authorization:
     "address": "Nairobi, Kenya"
 }
 ###
-DELETE http://localhost:8000/users/4
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDA3ODJ9.W3ZfjlQH6Thq1bOhrQsqIVkkGyU7qXqE0wrYS96NWcE
+DELETE http://localhost:8000/users/10
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-POST http://eveapi.azurewebsites.net/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDAzMDl9.iDeX4u5N5zAR2uPM7AEmvNFjEwzY5HyxfTWJ77sHEtE
+POST http://localhost:8000/users
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 Content-Type: application/json
 
 {
@@ -77,13 +84,15 @@ Content-Type: application/json
     "phone_verified":true,
     "email":"edwin@gmail.com",
     "email_verified":true,
-    "confirmation_code":"w8376",
-    "password":"8494",
-    "address": "Nyeri, Kenya"
+    "confirmation_code":"8376",
+    "password":"8494"
 }
 ###
+GET  http://localhost:8000/comment
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzM3NTJ9.DHzqUG10ulvKllV-2skogNTVSxaOv_Vhiqw-2tQgMok
+###
 POST http://localhost:8000/comment
-Authorization: 
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnYXQjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzE4MzczOTk3fQ.wRzPj6vNNujpfntoJNm-yrReisyralE7W4ieF3tqid0
 Content-Type: application/json
 
 {
@@ -98,12 +107,12 @@ Content-Type: application/json
 
 ###
 POST http://localhost:8000/orderMenuItem
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 Content-Type: application/json
 
 {
    
-   " quantity": 3,
+   "quantity": 3,
     "item_price": 650,
     "price":2100,
    "order_id": 2,
@@ -111,17 +120,17 @@ Content-Type: application/json
 }
 ###
 POST http://localhost:8000/address
-Authorization: 
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
 Content-Type: application/json
 
 {
    
-    " street_address_1":" 3456trrgh",
+    "street_address_1":" 3456trrgh",
     "street_address_2": "23rerfd",
-   " zip_code":"dfgfe345",
-   " delivery_instructions": "to house 101",
+   "zip_code":"dfgfe345",
+   "delivery_instructions": "to house 101",
     "created_at":"2023-3-4",
-   " updated_at":"2023-5-6",
+   "updated_at":"2023-5-6",
     "user_id":3,
     "city_id": 1
 }
@@ -131,10 +140,10 @@ POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-     "userId":3,
-     "email":"karen@gmail.com",
-    "password":"123",
-    "role":"userAdminRoleAuth"
+     "userId":4,
+     "email":"gat#@gmail.com",
+    "password":"4567",
+    "role":"user"
 }
 
 ###
@@ -142,6 +151,6 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email":"karen@gmail.com",
-    "password":"123"
+    "email":"gat#@gmail.com",
+    "password":"4567"
 }

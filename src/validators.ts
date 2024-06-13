@@ -50,8 +50,8 @@ export const userSchema = z.object({
     email_verified:z.boolean(),
     confirmation_code: z.string(),
     password: z.string(),
-    created_at:z.string(),
-    updated_at:z.string()
+    created_at:z.string().optional(),
+    updated_at:z.string().optional()
 })
 
 export const driverSchema = z.object({

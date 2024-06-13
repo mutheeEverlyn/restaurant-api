@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listCategory, getCategory, createCategory, updateCategory, deleteCategory } from "./category.controller"
+import { listCategory, getCategory, createCategory, updateCategory, deleteCategory, categoryWithItems  } from "./category.controller"
 import { zValidator } from "@hono/zod-validator";
 import { categorySchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -19,4 +19,5 @@ categoryRouter.post("/category",zValidator('json',categorySchema,(result,c) =>{
 categoryRouter.put("/category/:id",adminRoleAuth, updateCategory)
 
 categoryRouter.delete("/category/:id",adminRoleAuth, deleteCategory)
-
+//update a category
+categoryRouter.get("/categoryWithMenuItems",userAdminRoleAuth,categoryWithItems  )

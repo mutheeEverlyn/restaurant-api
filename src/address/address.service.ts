@@ -21,7 +21,26 @@ export const getAddressService = async (id: number) => {
 export const limitAddress = async (limit: number) => {
     return await db.select().from(tableAddress).limit(limit);
   };
+//address with city users and orders
 
+export const addressWithOrders= async () => {
+    return await db.query.tableAddress.findMany({
+        columns:{
+           city_id:true,
+           user_id:true,
+           street_address_1:true,
+           street_address_2:true
+        },with:{
+            orders:{
+                columns:{
+                   delivery_address_id:true,
+                   user_id:true,
+                   restaurant_id:true 
+                }
+            }
+        }
+    })
+}
 export const createAddressService = async (address:any) => {
     await db.insert(tableAddress).values(address)
     return "Address created successfully";
