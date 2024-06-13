@@ -21,9 +21,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb
 ###
 GET http://eveapi.azurewebsites.net/categoryWithMenuItems
 Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
-###
-GET http://localhost:8000/quantityRange?quantity1=2&quantity2=3
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
+
 ###
 GET https://eveapi.azurewebsites.net/emailVerifiedTrue
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
