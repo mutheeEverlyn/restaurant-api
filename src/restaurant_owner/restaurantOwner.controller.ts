@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { restaurantOwnerService, getRestaurantOwnerService, createRestaurantOwnerService, updateRestaurantOwnerService, deleteRestaurantOwnerService,restaurantIdBetween } from "./restaurantOwner.service";
+import { restaurantOwnerService, getRestaurantOwnerService, createRestaurantOwnerService, updateRestaurantOwnerService, deleteRestaurantOwnerService} from "./restaurantOwner.service";
 
 export const listRestaurantOwner= async (c: Context) => {
     try {
