@@ -23,4 +23,4 @@ addressRouter.delete("/address/:id",adminRoleAuth, deleteAddress)
 //https:domai.com/address?limit=10
 addressRouter.get("/limitAddress",userAdminRoleAuth, limit);
 //address with orders
-addressRouter.get("/addresswithOrders",adminRoleAuth, getAddressWithOrders );
+addressRouter.get("/addressWithOrders",adminRoleAuth, getAddressWithOrders );

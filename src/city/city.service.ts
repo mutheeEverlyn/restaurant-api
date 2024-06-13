@@ -22,7 +22,22 @@ export const cityNameLike=async (cityName:string) =>{
     const name=await db.select().from(tableCity).where(ilike(tableCity.name,`${cityName}%`));
     return name;
 }
-
+//getting city with restaurants
+export const cityWithRestaurant= async () => {
+    return await db.query.tableCity.findMany({
+        columns:{
+          name:true,
+          address:true
+        },with:{
+            restaurants:{
+                columns:{
+                name:true,
+                city_id:true
+                }
+            }
+        }
+    })
+}
 export const createCityService = async (city:any) => {
     await db.insert(tableCity).values(city)
     return "city created successfully";

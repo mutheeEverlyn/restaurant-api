@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listCity, getCity, createCity, updateCity, deleteCity,namesLike} from "./city.controller"
+import { listCity, getCity, createCity, updateCity, deleteCity,namesLike,getCityWithRestaurant} from "./city.controller"
 import { zValidator } from "@hono/zod-validator";
 import { citySchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -21,3 +21,5 @@ cityRouter.put("/city/:id",adminRoleAuth,updateCity)
 cityRouter.delete("/city/:id",adminRoleAuth, deleteCity)
 //names like
 cityRouter.get("/cityNames",userAdminRoleAuth, namesLike);
+//cityWithRestaurant
+cityRouter.get("/cityWithRestaurant",userAdminRoleAuth, getCityWithRestaurant);
