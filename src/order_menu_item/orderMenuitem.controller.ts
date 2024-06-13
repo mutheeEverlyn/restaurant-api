@@ -1,11 +1,9 @@
 import { Context } from "hono";
-import { orderMenuItemService, getOrderMenuItemService, createOrderMenuItemService, updateOrderMenuItemService, deleteOrderMenuItemService } from "./orderMenuItem.service";
+import { orderMenuItemService, getOrderMenuItemService, createOrderMenuItemService, updateOrderMenuItemService, deleteOrderMenuItemService,orderMenuItem } from "./orderMenuItem.service";
 import { ordermenuItem } from "../drizzle/schema";
 
 export const listOrderMenuItem = async (c: Context) => {
     try {
-        //limit the number of orderMenuItems to be returned
-
         const limit = Number(c.req.query('limit'))
 
         const data = await orderMenuItemService(limit);
@@ -27,6 +25,19 @@ export const getOrderMenuItem = async (c: Context) => {
         return c.text("orderMenuItem not found", 404);
     }
     return c.json(orderMenuItem, 200);
+}
+//or gt lt
+export const orderGtOrLt = async (c: Context) => {
+    const quantity1 = parseInt(c.req.param("quantity"));
+    if (isNaN(quantity1)) return c.text("Invalid ID", 400);
+    const quantity2= parseInt(c.req.param("id"));
+    if (isNaN(quantity2)) return c.text("Invalid ID", 400);
+
+    const quantityRange = await orderMenuItem(quantity1,quantity2);
+    if (quantityRange == undefined) {
+        return c.text("restaurantId not found", 404);
+    }
+    return c.json(quantityRange, 200);
 }
 export const createOrderMenuItem = async (c: Context) => {
     try {

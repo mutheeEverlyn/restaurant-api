@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq,sql } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableOrderMenuItem} from "../drizzle/schema"
 
@@ -17,7 +17,10 @@ export const getOrderMenuItemService = async (id: number) => {
         where: eq(tableOrderMenuItem.id, id)
     })
 }
-
+//or gt and lt
+export const orderMenuItem = async (quantity1: number, quantity2: number) => {
+    return await db.execute(sql`select * from ${tableOrderMenuItem} where ${tableOrderMenuItem.quantity} > ${quantity1} || ${tableOrderMenuItem.quantity} < ${quantity2}`)
+}
 export const createOrderMenuItemService = async (orderMenuItem:any) => {
     await db.insert(tableOrderMenuItem).values(orderMenuItem)
     return "orderMenuItem created successfully";

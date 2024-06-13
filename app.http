@@ -1,46 +1,56 @@
 
 GET http://localhost:8000/ok/
-
+###
+GET http://eveapi.azurewebsites.net/withStatusCatalog
+Authorization:
+###
+GET http://eveapi.azurewebsites.net/stateWithColumns
+Authorization:  
+###
+GET http://eveapi.azurewebsites.net/commentWithUsers
+Authorization: 
+###
+GET http://eveapi.azurewebsites.net/restaurantIdBetween
+Authorization:
+###
+GET http://eveapi.azurewebsites.net/quantityRange
+Authorization:   
 ###
 GET https://eveapi.azurewebsites.net/emailVerifiedTrue
-
+Authorization: 
 ###
-GET http://localhost:8000/orderCarYear
+GET http://eveapi.azurewebsites.net/orderCarYear
+Authorization: 
 ###
-GET http://localhost:8000/limitAddress?limit=1
+GET http://eveapi.azurewebsites.net/limitAddress?limit=1
+Authorization: 
 ###
-GET http://localhost:8000/cityNames?cityName=n
+GET http://eveapi.azurewebsites.net/cityNames?cityName=n
+Authorization: 
 ###
-GET http://localhost:8000/orderPrice?price=500
+GET http://eveapi.azurewebsites.net/orderPrice?price=500
+Authorization: 
 ###
-GET http://localhost:8000/restaurantAndOwners
+GET http://eveapi.azurewebsites.net/restaurantAndOwners
+Authorization: 
 ###
-GET http://localhost:8000/comment
+GET http://eveapi.azurewebsites.net/comment
+Authorization: 
 ###
-GET http://localhost:8000/driver/1
+GET http://eveapi.azurewebsites.net/driver/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODExNzYyM30.vowC9dCDq_nyZAyAlm02VqczSr0BD1Jv53tXI6rB5-I
 ###
-GET http://localhost:8000/menuItem
-###
-GET http://localhost:8000/orderMenuItem
-###
-GET http://localhost:8000/orderStatus
-###
-GET http://localhost:8000/statusCatalog
-###
-GET http://localhost:8000/address
-###
-GET http://localhost:8000/restaurantOwner
-###
-GET http://localhost:8000/restaurant
-###
-GET http://localhost:8000/users/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDQ0NzV9.zrus1TIqhVqnJoVHTd6Y0YN7u6wsbdVpeIQT5A129PY
+GET http://eveapi.azurewebsites.net/menuItem
+Authorization: 
 ###
 GET http://localhost:8000/users/1
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDQ0NzV9.zrus1TIqhVqnJoVHTd6Y0YN7u6wsbdVpeIQT5A129PY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzMDU5NzB9.4CrE6eMEI3tSDoLGd478sbcLZhYoAn7exHm_BiAKOus
+###
+GET http://localhost:8000/users
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzMDU5NzB9.4CrE6eMEI3tSDoLGd478sbcLZhYoAn7exHm_BiAKOus
 ###
 put http://localhost:8000/users/1
+Authorization: 
 
 {
  "name": "everlyn muthoni",
@@ -56,7 +66,7 @@ put http://localhost:8000/users/1
 DELETE http://localhost:8000/users/4
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDA3ODJ9.W3ZfjlQH6Thq1bOhrQsqIVkkGyU7qXqE0wrYS96NWcE
 ###
-POST http://localhost:8000/users
+POST http://eveapi.azurewebsites.net/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgyMDAzMDl9.iDeX4u5N5zAR2uPM7AEmvNFjEwzY5HyxfTWJ77sHEtE
 Content-Type: application/json
 
@@ -71,77 +81,9 @@ Content-Type: application/json
     "password":"8494",
     "address": "Nyeri, Kenya"
 }
-
-
 ###
-POST http://localhost:8000/orders
-Content-Type: application/json
-
-{
-  
-  "price": 3405,
-  "discount": 34,
-  "final_price": 3415,
-  "comment": "Please leave at the front door.",
-  "restaurant_id" : 2,
-  "delivery_address_id": 2,
-  "user_id" : 1,
-  "driver_id": 2
-}
-###
-POST http://localhost:8000/menuItem
-Content-Type: application/json
-
-{
-  
-   "name":"mukimo",
-   " description": "special dish",
-   " ingredients":"beans,maize and potatoes",
-    "price":300,
-   " active":true,
-    "created_at":"2023-6-8",
-   " updated_at":"2023-6-9",
-    "restaurant_id":1,
-   "category_id":2
-}
-
-
-###
-
-POST http://localhost:8000/restaurantOwner
-Content-Type: application/json
-
-{
-   
-    "owner_id": 2,
-    "restaurant_id": 2
-}
-###
-
-POST http://localhost:8000/state
-Content-Type: application/json
-
-{
-   
-    "name": "kilifi",
-    "code": "25417"
-}
-###
-
-POST http://localhost:8000/orderStatus
-Content-Type: application/json
-
-{
-  
-    "order_id": 2,
-    "status_catalog_id":1,
-    "created_at":"2022-4-6"
-   
-}
-
-###
-
 POST http://localhost:8000/comment
+Authorization: 
 Content-Type: application/json
 
 {
@@ -153,18 +95,10 @@ Content-Type: application/json
     "order_id": 2,
     "user_id": 2
 }
-###
-
-POST http://localhost:8000/category
-Content-Type: application/json
-
-{
-   
-    "name": "ice-cream"
-}
 
 ###
 POST http://localhost:8000/orderMenuItem
+Authorization: 
 Content-Type: application/json
 
 {
@@ -177,6 +111,7 @@ Content-Type: application/json
 }
 ###
 POST http://localhost:8000/address
+Authorization: 
 Content-Type: application/json
 
 {

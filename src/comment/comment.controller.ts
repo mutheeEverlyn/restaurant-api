@@ -1,10 +1,8 @@
 import { Context } from "hono";
-import { commentService, getCommentService, createCommentService, updateCommentService, deleteCommentService } from "./comment.service";
+import { commentService, getCommentService, createCommentService, updateCommentService, deleteCommentService,userWithComment} from "./comment.service";
 
 export const listComment = async (c: Context) => {
     try {
-        //limit the number of comments to be returned
-
         const limit = Number(c.req.query('limit'))
 
         const data = await commentService(limit);
@@ -27,14 +25,23 @@ export const getComment = async (c: Context) => {
     }
     return c.json(comment, 200);
 }
-
+//with columns
+export const commentWithUsers = async (c: Context) => {
+    try {
+        const data= await userWithComment();
+        if (data == null || data.length == 0){
+        return c.text("commentsWithUsers not found", 404);
+        }
+        return c.json(data,200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+}
 
 export const createComment = async (c: Context) => {
     try {
         const comment = await c.req.json();
         const createdComment= await createCommentService(comment);
-
-
         if (!createdComment) return c.text("Comment not created", 404);
         return c.json({ msg: createdComment}, 201);
 

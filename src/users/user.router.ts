@@ -10,12 +10,14 @@ userRouter.get("/users",adminRoleAuth, listUsers);
 //get a single user    api/users/1
 userRouter.get("/users/:id",userAdminRoleAuth, getUser); 
 //get email verified
-userRouter.get("/emailVerifiedTrue",emailVerifiedTrue);
+userRouter.get("/emailVerifiedTrue",adminRoleAuth,emailVerifiedTrue);
 // create a user 
-userRouter.post("/users",adminRoleAuth,createUser);  
+userRouter.post("/users",zValidator('json',userSchema,(result,c) =>{
+    if(!result.success){
+        return c.json(result.error,400)
+    }
+}), adminRoleAuth,createUser);  
 //update a user
 userRouter.put("/users/:id",adminRoleAuth, updateUser);
 
 userRouter.delete("/users/:id",adminRoleAuth, deleteUser);
-
-//https:domai.com/api/users?limit=10

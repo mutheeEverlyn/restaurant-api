@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { between, eq } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableRestaurantOwner} from "../drizzle/schema"
 
@@ -15,6 +15,12 @@ export const  restaurantOwnerService = async (limit?: number) => {
 export const getRestaurantOwnerService = async (id: number) => {
     return await db.query.tableRestaurantOwner.findFirst({
         where: eq(tableRestaurantOwner.id, id)
+    })
+}
+//between
+export const restaurantIdBetween= async (id1: number,id2:number) => {
+    return await db.query.tableRestaurantOwner.findMany({
+        where: between(tableRestaurantOwner.id, id1,id2)
     })
 }
 

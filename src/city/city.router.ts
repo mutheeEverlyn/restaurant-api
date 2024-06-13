@@ -2,17 +2,22 @@ import { Hono } from "hono";
 import { listCity, getCity, createCity, updateCity, deleteCity,namesLike} from "./city.controller"
 import { zValidator } from "@hono/zod-validator";
 import { citySchema } from "../validators";
+import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
 export const cityRouter = new Hono();
 
 //get all cities     /city
-cityRouter.get("/city", listCity);
+cityRouter.get("/city",userAdminRoleAuth, listCity);
 //get a single city    city/1
-cityRouter.get("/city/:id", getCity)
+cityRouter.get("/city/:id",userAdminRoleAuth, getCity)
 // create a city
-cityRouter.post("/city", createCity)
+cityRouter.post("/city",zValidator('json',citySchema,(result,c) =>{
+    if(!result.success){
+        return c.json(result.error,400)
+    }
+}),adminRoleAuth, createCity)
 //update a city
-cityRouter.put("/city/:id", updateCity)
+cityRouter.put("/city/:id",adminRoleAuth,updateCity)
 
-cityRouter.delete("/city/:id", deleteCity)
+cityRouter.delete("/city/:id",adminRoleAuth, deleteCity)
 //names like
-cityRouter.get("/cityNames", namesLike);
+cityRouter.get("/cityNames",userAdminRoleAuth, namesLike);

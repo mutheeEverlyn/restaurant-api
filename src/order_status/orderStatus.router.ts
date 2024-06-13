@@ -2,16 +2,21 @@ import { Hono } from "hono";
 import { listOrderStatus, getOrderStatus, createOrderStatus, updateOrderStatus, deleteOrderStatus } from "./orderStatus.controller"
 import { zValidator } from "@hono/zod-validator";
 import { orderStatusSchema } from "../validators";
+import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
 export const orderStatusRouter = new Hono();
 
 //get all orderStatus    orderStatus
-orderStatusRouter.get("/orderStatus",listOrderStatus);
+orderStatusRouter.get("/orderStatus",adminRoleAuth,listOrderStatus);
 //get a single orderStatus   orderStatus/1
-orderStatusRouter.get("/orderStatus/:id", getOrderStatus)
+orderStatusRouter.get("/orderStatus/:id",userAdminRoleAuth, getOrderStatus)
 // create an orderStatus
-orderStatusRouter.post("/orderStatus", createOrderStatus)
+orderStatusRouter.post("/orderStatus",zValidator('json',orderStatusSchema,(result,c) =>{
+    if(!result.success){
+        return c.json(result.error,400)
+    }
+}),adminRoleAuth, createOrderStatus)
 //update an orderStatus
-orderStatusRouter.put("/orderStatus/:id", updateOrderStatus)
+orderStatusRouter.put("/orderStatus/:id",adminRoleAuth, updateOrderStatus)
 
-orderStatusRouter.delete("/orderStatus/:id", deleteOrderStatus)
+orderStatusRouter.delete("/orderStatus/:id",adminRoleAuth, deleteOrderStatus)
 

@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { stateService, getStateService, createStateService, updateStateService, deleteStateService } from "./state.service";
+import { stateService, getStateService, createStateService, updateStateService, deleteStateService,stateWithColums } from "./state.service";
 
 export const listState= async (c: Context) => {
     try {
@@ -26,6 +26,18 @@ export const getState = async (c: Context) => {
         return c.text("state not found", 404);
     }
     return c.json(state, 200);
+}
+//state with columns
+export const stateColumns= async (c: Context) => {
+    try {
+        const data = await stateWithColums();
+        if (data == null || data.length == 0) {
+            return c.text("state not found", 404)
+        }
+        return c.json(data, 200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
 }
 export const createState= async (c: Context) => {
     try {

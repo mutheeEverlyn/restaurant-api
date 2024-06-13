@@ -17,6 +17,15 @@ export const getStatusCatalogService = async (id: number) => {
         where: eq(tableStatusCatalog.id, id)
     })
 }
+//with
+export const withStatusCatalog = async () => {
+    return await db.query.tableStatusCatalog.findMany({
+        with:{
+            order_status:true
+        },
+    })
+    
+}
 
 export const createStatusCatalogService = async (statusCatalog:any) => {
     await db.insert(tableStatusCatalog).values(statusCatalog)

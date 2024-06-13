@@ -17,7 +17,18 @@ export const getStateService = async (id: number) => {
         where: eq(tableState.id, id)
     })
 }
-
+//with columns
+export const stateWithColums = async () => {
+    return await db.query.tableState.findMany({
+        columns:{
+            id:true,
+            name:true
+        },
+       with:{
+        city:true
+       }
+    });
+}
 export const createStateService = async (state:any) => {
     await db.insert(tableState).values(state)
     return "state created successfully";
