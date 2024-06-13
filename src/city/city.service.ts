@@ -1,9 +1,9 @@
 import { eq,ilike,like } from "drizzle-orm";
 import db from "../drizzle/db";
-import {tableCity} from "../drizzle/schema"
+import {tableCity, tsCity,tiCity} from "../drizzle/schema"
 
 
-export const cityService = async (limit?: number) => {
+export const cityService = async (limit?: number):Promise<tsCity[] | unknown> => {
     if (limit) {
         return await db.query.tableCity.findMany({
             limit: limit
@@ -12,18 +12,18 @@ export const cityService = async (limit?: number) => {
     return await db.query.tableCity.findMany();
 }
 
-export const getCityService = async (id: number) => {
+export const getCityService = async (id: number):Promise<tsCity[] | unknown>  => {
     return await db.query.tableCity.findFirst({
         where: eq(tableCity.id, id)
     })
 }
 //getting city with specific names
-export const cityNameLike=async (cityName:string) =>{
+export const cityNameLike=async (cityName:string):Promise<tsCity[] | unknown>  =>{
     const name=await db.select().from(tableCity).where(ilike(tableCity.name,`${cityName}%`));
     return name;
 }
 //getting city with restaurants
-export const cityWithRestaurant= async () => {
+export const cityWithRestaurant= async ():Promise<tsCity[] | unknown>  => {
     return await db.query.tableCity.findMany({
         columns:{
           name:true,
@@ -38,17 +38,17 @@ export const cityWithRestaurant= async () => {
         }
     })
 }
-export const createCityService = async (city:any) => {
+export const createCityService = async (city:any):Promise<tiCity[] | unknown>  => {
     await db.insert(tableCity).values(city)
     return "city created successfully";
 }
 
-export const updateCityService = async (id: number, city: any) => {
+export const updateCityService = async (id: number, city: any):Promise<tiCity[] | unknown>  => {
     await db.update(tableCity).set(city).where(eq(tableCity.id, id))
     return "city updated successfully";
 }
 
-export const deleteCityService = async (id: number) => {
+export const deleteCityService = async (id: number):Promise<string | null>  => {
     await db.delete(tableCity).where(eq(tableCity.id, id))
     return "city deleted successfully";
 }

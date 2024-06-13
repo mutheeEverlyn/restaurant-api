@@ -14,7 +14,7 @@ ordersRouter.post("/orders",zValidator('json',ordersSchema,(result,c) =>{
     if(!result.success){
         return c.json(result.error,400)
     }
-}), adminRoleAuth,createOrders)
+}), userRoleAuth,createOrders)
 //update an order
 ordersRouter.put("/orders/:id",adminRoleAuth, updateOrders)
 

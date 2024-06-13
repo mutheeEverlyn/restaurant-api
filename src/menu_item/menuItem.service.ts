@@ -1,9 +1,9 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db";
-import {tableMenuItem} from "../drizzle/schema"
+import {tableMenuItem, tsMenuItem,tiMenuItem} from "../drizzle/schema"
 
 
-export const menuItemService = async (limit?: number) => {
+export const menuItemService = async (limit?: number):Promise<tsMenuItem[] | unknown> => {
     if (limit) {
         return await db.query.tableMenuItem.findMany({
             limit: limit
@@ -12,23 +12,23 @@ export const menuItemService = async (limit?: number) => {
     return await db.query.tableMenuItem.findMany();
 }
 
-export const getMenuItemService = async (id: number) => {
+export const getMenuItemService = async (id: number):Promise<tsMenuItem[] | unknown> => {
     return await db.query.tableMenuItem.findFirst({
         where: eq(tableMenuItem.id, id)
     })
 }
 
-export const createMenuItemService = async (menuItem:any) => {
+export const createMenuItemService = async (menuItem:any):Promise<tiMenuItem[] | unknown> => {
     await db.insert(tableMenuItem).values(menuItem)
     return "menuItem created successfully";
 }
 
-export const updateMenuItemService = async (id: number, menuItem: any) => {
+export const updateMenuItemService = async (id: number, menuItem: any):Promise<tiMenuItem[] | unknown> => {
     await db.update(tableMenuItem).set(menuItem).where(eq(tableMenuItem.id, id))
     return "menuItem updated successfully";
 }
 
-export const deleteMenuItemService = async (id: number) => {
+export const deleteMenuItemService = async (id: number):Promise<string | null>  => {
     await db.delete(tableMenuItem).where(eq(tableMenuItem.id, id))
     return "menuItem deleted successfully";
 }

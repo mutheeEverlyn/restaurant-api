@@ -1,9 +1,9 @@
 import { eq,sql } from "drizzle-orm";
 import db from "../drizzle/db";
-import {tableOrderMenuItem} from "../drizzle/schema"
+import {tableOrderMenuItem, tsOrderMenuItem,tiOrderMenuItem} from "../drizzle/schema"
 
 
-export const orderMenuItemService = async (limit?: number) => {
+export const orderMenuItemService = async (limit?: number):Promise<tsOrderMenuItem[] | unknown> => {
     if (limit) {
         return await db.query.tableOrderMenuItem.findMany({
             limit: limit
@@ -12,13 +12,13 @@ export const orderMenuItemService = async (limit?: number) => {
     return await db.query.tableOrderMenuItem.findMany();
 }
 
-export const getOrderMenuItemService = async (id: number) => {
+export const getOrderMenuItemService = async (id: number):Promise<tsOrderMenuItem[] | unknown>  => {
     return await db.query.tableOrderMenuItem.findFirst({
         where: eq(tableOrderMenuItem.id, id)
     })
 }
 //orderMenuItem  -order
-export const orderMenuItemWithMenuItem= async () => {
+export const orderMenuItemWithMenuItem= async ():Promise<tsOrderMenuItem[] | unknown>  => {
     return await db.query.tableOrderMenuItem.findMany({
         columns:{
           item_price:true,
@@ -35,17 +35,17 @@ export const orderMenuItemWithMenuItem= async () => {
         }
     })
 }
-export const createOrderMenuItemService = async (orderMenuItem:any) => {
+export const createOrderMenuItemService = async (orderMenuItem:any):Promise<tiOrderMenuItem[] | unknown>  => {
     await db.insert(tableOrderMenuItem).values(orderMenuItem)
     return "orderMenuItem created successfully";
 }
 
-export const updateOrderMenuItemService = async (id: number, orderMenuItem: any) => {
+export const updateOrderMenuItemService = async (id: number, orderMenuItem: any):Promise<tiOrderMenuItem[] | unknown>  => {
     await db.update(tableOrderMenuItem).set(orderMenuItem).where(eq(tableOrderMenuItem.id, id))
     return "OrderMenuItem updated successfully";
 }
 
-export const deleteOrderMenuItemService = async (id: number) => {
+export const deleteOrderMenuItemService = async (id: number):Promise<string | null>  => {
     await db.delete(tableOrderMenuItem).where(eq(tableOrderMenuItem.id, id))
     return "ordermenuItem deleted successfully";
 }
