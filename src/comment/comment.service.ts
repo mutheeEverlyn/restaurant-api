@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableComment, tsComment,tiComment} from "../drizzle/schema"
 
 
-export const commentService = async (limit?: number):Promise<tsComment[] | unknown>  => {
+export const commentService = async (limit?: number):Promise<tsComment[] | null>  => {
     if (limit) {
         return await db.query.tableComment.findMany({
             limit: limit
@@ -12,14 +12,14 @@ export const commentService = async (limit?: number):Promise<tsComment[] | unkno
     return await db.query.tableComment.findMany();
 }
 
-export const getCommentService = async (id: number):Promise<tsComment[] | unknown>  => {
+export const getCommentService = async (id: number) => {
     return await db.query.tableComment.findFirst({
         where: eq(tableComment.id, id)
     })
 }
 //userWithComment
 
-export const userWithComment= async ():Promise<tsComment[] | unknown>  => {
+export const userWithComment= async () => {
     return await db.query.tableComment.findMany({
         columns:{
            is_complaint:true,
@@ -35,17 +35,17 @@ export const userWithComment= async ():Promise<tsComment[] | unknown>  => {
     })
 }
 
-export const createCommentService = async (comment:any):Promise<tiComment[] | unknown>  => {
+export const createCommentService = async (comment:any):Promise<string | null>  => {
     await db.insert(tableComment).values(comment)
     return "comment created successfully";
 }
 
-export const updateCommentService = async (id: number, comment: any):Promise<tiComment[] | unknown>  => {
+export const updateCommentService = async (id: number, comment: any):Promise<string | null> => {
     await db.update(tableComment).set(comment).where(eq(tableComment.id, id))
     return "comment updated successfully";
 }
 
-export const deleteCommentService = async (id: number):Promise<string | null>  => {
+export const deleteCommentService = async (id: number):Promise<string | null> => {
     await db.delete(tableComment).where(eq(tableComment.id, id))
     return "comment deleted successfully";
 }

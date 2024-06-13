@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableCity, tsCity,tiCity} from "../drizzle/schema"
 
 
-export const cityService = async (limit?: number):Promise<tsCity[] | unknown> => {
+export const cityService = async (limit?: number):Promise<tsCity[] | null> => {
     if (limit) {
         return await db.query.tableCity.findMany({
             limit: limit
@@ -12,13 +12,13 @@ export const cityService = async (limit?: number):Promise<tsCity[] | unknown> =>
     return await db.query.tableCity.findMany();
 }
 
-export const getCityService = async (id: number):Promise<tsCity[] | unknown>  => {
+export const getCityService = async (id: number) => {
     return await db.query.tableCity.findFirst({
         where: eq(tableCity.id, id)
     })
 }
 //getting city with specific names
-export const cityNameLike=async (cityName:string):Promise<tsCity[] | unknown>  =>{
+export const cityNameLike=async (cityName:string)  =>{
     const name=await db.select().from(tableCity).where(ilike(tableCity.name,`${cityName}%`));
     return name;
 }
@@ -38,17 +38,17 @@ export const cityWithRestaurant= async ():Promise<tsCity[] | unknown>  => {
         }
     })
 }
-export const createCityService = async (city:any):Promise<tiCity[] | unknown>  => {
+export const createCityService = async (city:any):Promise<string | null>  => {
     await db.insert(tableCity).values(city)
     return "city created successfully";
 }
 
-export const updateCityService = async (id: number, city: any):Promise<tiCity[] | unknown>  => {
+export const updateCityService = async (id: number, city: any):Promise<string | null>   => {
     await db.update(tableCity).set(city).where(eq(tableCity.id, id))
     return "city updated successfully";
 }
 
-export const deleteCityService = async (id: number):Promise<string | null>  => {
+export const deleteCityService = async (id: number):Promise<string | null>   => {
     await db.delete(tableCity).where(eq(tableCity.id, id))
     return "city deleted successfully";
 }

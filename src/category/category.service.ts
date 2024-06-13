@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableCategory, tsCategory,tiCategory} from "../drizzle/schema"
 
 
-export const categoryService = async (limit?: number):Promise<tsCategory[] | unknown> => {
+export const categoryService = async (limit?: number):Promise<tsCategory[] | null> => {
     if (limit) {
         return await db.query.tableCategory.findMany({
             limit: limit
@@ -12,13 +12,13 @@ export const categoryService = async (limit?: number):Promise<tsCategory[] | unk
     return await db.query.tableCategory.findMany();
 }
 
-export const getCategoryService = async (id: number):Promise<tsCategory[] | unknown> => {
+export const getCategoryService = async (id: number) => {
     return await db.query.tableCategory.findFirst({
         where: eq(tableCategory.id, id)
     })
 }
 //category with menuitem
-export const categoryWithMenuItems= async ():Promise<tsCategory[] | unknown> => {
+export const categoryWithMenuItems= async () => {
     return await db.query.tableCategory.findMany({
         columns:{
          name:true
@@ -34,12 +34,12 @@ export const categoryWithMenuItems= async ():Promise<tsCategory[] | unknown> => 
     })
 }
 
-export const createCategoryService = async (category:any):Promise<tiCategory[] | unknown> => {
+export const createCategoryService = async (category:any):Promise<string | null>  => {
     await db.insert(tableCategory).values(category)
     return "category created successfully";
 }
 
-export const updateCategoryService = async (id: number, category: any):Promise<tiCategory[] | unknown> => {
+export const updateCategoryService = async (id: number, category: any):Promise<string | null>  => {
     await db.update(tableCategory).set(category).where(eq(tableCategory.id, id))
     return "category updated successfully";
 }

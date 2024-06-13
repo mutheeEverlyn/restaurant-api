@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableAddress, tsAddress,tiAddress} from "../drizzle/schema"
 
 
-export const addressService = async (limit?: number):Promise<tsAddress[] | unknown> => {
+export const addressService = async (limit?: number):Promise<tsAddress[] | null> => {
     if (limit) {
         return await db.query.tableAddress.findMany({
             limit: limit
@@ -12,25 +12,26 @@ export const addressService = async (limit?: number):Promise<tsAddress[] | unkno
     return await db.query.tableAddress.findMany();
 }
 
-export const getAddressService = async (id: number):Promise<tsAddress[] | unknown> => {
+export const getAddressService = async (id: number) => {
     return await db.query.tableAddress.findFirst({
         where: eq(tableAddress.id, id)
     })
 }
 //limit
-export const limitAddress = async (limit: number):Promise<tsAddress[] | unknown> => {
+export const limitAddress = async (limit: number):Promise<tsAddress[] | null> => {
     return await db.select().from(tableAddress).limit(limit);
   };
 //address with city users and orders
 
-export const addressWithOrders= async ():Promise<tsAddress[] | unknown> => {
+export const addressWithOrders= async () => {
     return await db.query.tableAddress.findMany({
         columns:{
            city_id:true,
            user_id:true,
            street_address_1:true,
            street_address_2:true
-        },with:{
+        },
+        with:{
             orders:{
                 columns:{
                    delivery_address_id:true,
@@ -41,12 +42,12 @@ export const addressWithOrders= async ():Promise<tsAddress[] | unknown> => {
         }
     })
 }
-export const createAddressService = async (address:any):Promise<tiAddress[] | unknown> => {
+export const createAddressService = async (address:any):Promise<string | null>  => {
     await db.insert(tableAddress).values(address)
     return "Address created successfully";
 }
 
-export const updateAddressService = async (id: number,address: any):Promise<tiAddress[] | unknown> => {
+export const updateAddressService = async (id: number,address: any):Promise<string | null>  => {
     await db.update(tableAddress).set(address).where(eq(tableAddress.id, id))
     return "Address updated successfully";
 }

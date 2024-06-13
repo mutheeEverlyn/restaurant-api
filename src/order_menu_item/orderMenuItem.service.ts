@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableOrderMenuItem, tsOrderMenuItem,tiOrderMenuItem} from "../drizzle/schema"
 
 
-export const orderMenuItemService = async (limit?: number):Promise<tsOrderMenuItem[] | unknown> => {
+export const orderMenuItemService = async (limit?: number):Promise<tsOrderMenuItem[] | null> => {
     if (limit) {
         return await db.query.tableOrderMenuItem.findMany({
             limit: limit
@@ -12,13 +12,13 @@ export const orderMenuItemService = async (limit?: number):Promise<tsOrderMenuIt
     return await db.query.tableOrderMenuItem.findMany();
 }
 
-export const getOrderMenuItemService = async (id: number):Promise<tsOrderMenuItem[] | unknown>  => {
+export const getOrderMenuItemService = async (id: number) => {
     return await db.query.tableOrderMenuItem.findFirst({
         where: eq(tableOrderMenuItem.id, id)
     })
 }
 //orderMenuItem  -order
-export const orderMenuItemWithMenuItem= async ():Promise<tsOrderMenuItem[] | unknown>  => {
+export const orderMenuItemWithMenuItem= async ()  => {
     return await db.query.tableOrderMenuItem.findMany({
         columns:{
           item_price:true,
@@ -35,12 +35,12 @@ export const orderMenuItemWithMenuItem= async ():Promise<tsOrderMenuItem[] | unk
         }
     })
 }
-export const createOrderMenuItemService = async (orderMenuItem:any):Promise<tiOrderMenuItem[] | unknown>  => {
+export const createOrderMenuItemService = async (orderMenuItem:any):Promise<string | null>   => {
     await db.insert(tableOrderMenuItem).values(orderMenuItem)
     return "orderMenuItem created successfully";
 }
 
-export const updateOrderMenuItemService = async (id: number, orderMenuItem: any):Promise<tiOrderMenuItem[] | unknown>  => {
+export const updateOrderMenuItemService = async (id: number, orderMenuItem: any):Promise<string | null>   => {
     await db.update(tableOrderMenuItem).set(orderMenuItem).where(eq(tableOrderMenuItem.id, id))
     return "OrderMenuItem updated successfully";
 }

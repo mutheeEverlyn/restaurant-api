@@ -3,7 +3,7 @@ import db from "../drizzle/db";
 import {tableDriver, tsDriver,tiDriver} from "../drizzle/schema"
 
 
-export const driverService = async (limit?: number):Promise<tsDriver[] | unknown> => {
+export const driverService = async (limit?: number):Promise<tsDriver[] | null> => {
     if (limit) {
         return await db.query.tableDriver.findMany({
             limit: limit
@@ -12,24 +12,24 @@ export const driverService = async (limit?: number):Promise<tsDriver[] | unknown
     return await db.query.tableDriver.findMany();
 }
 
-export const getDriverService = async (id: number):Promise<tsDriver[] | unknown> => {
+export const getDriverService = async (id: number) => {
     return await db.query.tableDriver.findFirst({
         where: eq(tableDriver.id, id)
     })
 }
 //orderby
 
-export const descCarYear = async ():Promise<tsDriver[] | unknown> => {
+export const descCarYear = async () => {
     const orderCarYear =await db.select().from(tableDriver).orderBy(sql`${tableDriver.car_year} desc `);
     return orderCarYear;
 }
 
-export const createDriverService = async (driver:any):Promise<tiDriver[] | unknown> => {
+export const createDriverService = async (driver:any):Promise<string | null>  => {
     await db.insert(tableDriver).values(driver)
     return "driver created successfully";
 }
 
-export const updateDriverService = async (id: number, driver: any):Promise<tiDriver[] | unknown> => {
+export const updateDriverService = async (id: number, driver: any):Promise<string | null>  => {
     await db.update(tableDriver).set(driver).where(eq(tableDriver.id, id))
     return "driver updated successfully";
 }

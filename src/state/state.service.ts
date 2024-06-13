@@ -12,13 +12,13 @@ export const stateService = async (limit?: number):Promise<tsState[] | null> => 
     return await db.query.tableState.findMany();
 }
 
-export const getStateService = async (id: number):Promise<tsState[] | unknown> => {
+export const getStateService = async (id: number) => {
     return await db.query.tableState.findFirst({
         where: eq(tableState.id, id)
     })
 }
 //with columns
-export const stateWithColums = async ():Promise<tsState[] | unknown> => {
+export const stateWithColums = async () => {
     return await db.query.tableState.findMany({
         columns:{
             id:true,
@@ -29,12 +29,12 @@ export const stateWithColums = async ():Promise<tsState[] | unknown> => {
        }
     });
 }
-export const createStateService = async (state:any):Promise<tiState[] | unknown> => {
+export const createStateService = async (state:any):Promise<string | null>  => {
     await db.insert(tableState).values(state)
     return "state created successfully";
 }
 
-export const updateStateService = async (id: number, state: any):Promise<tiState[] | unknown>=> {
+export const updateStateService = async (id: number, state: any):Promise<string | null> => {
     await db.update(tableState).set(state).where(eq(tableState.id, id))
     return "state updated successfully";
 }
