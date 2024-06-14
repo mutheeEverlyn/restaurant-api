@@ -116,7 +116,7 @@ app.get('/',(c) =>{
     </header>
     <div class="container">
         <h2>About</h2>
-        <p>My API helps you access information about a Restaurant information from the database.</p>
+        <p>My API helps you access data about a Restaurant information from the database.</p>
         
         <h2>Features of m API</h2>
         <ul>
