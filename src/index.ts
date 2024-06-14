@@ -81,7 +81,10 @@ app.get('/',(c) =>{
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        h1{
+        color:#fff;
+        }
+         h2 {
             color: #007BFF;
         }
         .btn {
@@ -121,10 +124,62 @@ app.get('/',(c) =>{
             <li>Fast and reliable</li>
             <li>Secure and scalable</li>
         </ul>
-
+        <h2>please regiter here</h2>
+        <a href="http://eveapi.azurewebsites.net/register" class="btn">register </a>
+        <h2>click to login</h2>
+        <a href="http://eveapi.azurewebsites.net/login" class="btn">login </a>
+        <h2>Adding address data</h2>
+        <a href="http://eveapi.azurewebsites.net/address" class="btn">add </a>
+        <h2>add an order-menu-item</h2>
+        <a href="http://eveapi.azurewebsites.net/orderMenuItem" class="btn">add </a>
+        <h2>add a comment</h2>
+        <a href="http://eveapi.azurewebsites.net/comment" class="btn">add </a>
+        <h2>get comments</h2>
+        <a href="http://eveapi.azurewebsites.net/comment" class="btn">view data </a>
+        <h2>add users</h2>
+        <a href="http://eveapi.azurewebsites.net/users" class="btn">add </a>
+        <h2>deleting a user </h2>
+        <a href="http://eveapi.azurewebsites.net/users/1" class="btn">delete </a>
+        <h2>update a user </h2>
+        <a href="http://eveapi.azurewebsites.net/user/1" class="btn">update </a>
+        <h2>viewing all users data</h2>
+        <a href="http://eveapi.azurewebsites.net/users" class="btn">view data</a>
+        <h2>viewing data of a specific user</h2>
+        <a href="http://eveapi.azurewebsites.net/users/1" class="btn">view data</a>
+        <h2>viewing all data of the menuItem</h2>
+        <a href="http://eveapi.azurewebsites.net/menuItem" class="btn">view data </a>
+        <h2>viewing all comments</h2>
+        <a href="http://eveapi.azurewebsites.net/comment" class="btn">view data  </a>
+        <h2>viewing data from restaurantOwner</h2>
+        <a href="http://eveapi.azurewebsites.net/restaurantOwnerData" class="btn">view data </a>
+        <h2>viewing data in a restaurant</h2>
+        <a href="http://eveapi.azurewebsites.net/restaurantData" class="btn">view data  </a>
+        <h2>viewing order prices greater than</h2>
+        <a href="http://eveapi.azurewebsites.net/orderPrice?price=500" class="btn">view data  </a>
+        <h2>viewing data of cities starting with a certain letter</h2>
+        <a href="http://eveapi.azurewebsites.net/cityNames?cityName=n" class="btn">view data  </a>
+        <h2>viewing data of limitted addresses</h2>
+        <a href="http://eveapi.azurewebsites.net/limitAddress?limit=1" class="btn">view data  </a>
+        <h2>viewing data of ordered car year from latest</h2>
+        <a href="http://eveapi.azurewebsites.net/orderCarYear" class="btn">view data  </a>
+        <h2>viewing data of emails verified</h2>
+        <a href="http://eveapi.azurewebsites.net/emailVerifiedTrue" class="btn">view data  </a>
         <h2>viewing data in orders</h2>
         <a href="http://eveapi.azurewebsites.net/orderData" class="btn">view data  </a>
-
+        <h2>viewing data in category</h2>
+        <a href="http://eveapi.azurewebsites.net/categoryData" class="btn">view data  </a>
+        <h2>viewing data in city</h2>
+        <a href="http://eveapi.azurewebsites.net/cityData" class="btn">view data  </a>
+        <h2>viewing data in comments</h2>
+        <a href="http://eveapi.azurewebsites.net/commentData" class="btn">view data  </a>
+        <h2>viewing data in orderStatus</h2>
+        <a href="http://eveapi.azurewebsites.net/orderStatusData" class="btn">view data  </a>
+        <h2>viewing data in orderMenuItem</h2>
+        <a href="http://eveapi.azurewebsites.net/orderMenuItemData" class="btn">view data  </a>
+        <h2>viewing data in menuItem</h2>
+        <a href="http://eveapi.azurewebsites.net/menuItemData" class="btn">view data  </a>
+        <h2>viewing data in driversData</h2>
+        <a href="http://eveapi.azurewebsites.net/driversData" class="btn">view data  </a>
         <h2>viewing data in the status catalog</h2>
         <a href="http://eveapi.azurewebsites.net/statusCatalogData" class="btn">View data in status catalog</a>
         <h2>viewing data in users</h2>
