@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db";
 import {tableMenuItem, tsMenuItem,tiMenuItem} from "../drizzle/schema"
+import { truncateSync } from "fs";
 
 
 export const menuItemService = async (limit?: number):Promise<tsMenuItem[] | null> => {
@@ -17,7 +18,38 @@ export const getMenuItemService = async (id: number) => {
         where: eq(tableMenuItem.id, id)
     })
 }
-
+//menuItem data
+export const menuItemData= async () => {
+    return await db.query.tableMenuItem.findMany({
+        columns:{
+          active:true,
+          description:true,
+          ingredients:true,
+          name:true,
+          price:true
+        },with:{
+            category:{
+                columns:{
+                name:true
+                }
+            },
+           order_menu_item :{
+                columns:{
+                    item_price:true,
+                    quantity:true,
+                    price:true
+                }
+            },
+            restaurants:{
+                columns:{
+                    name:true,
+                    street_address:true,
+                    zip_code:true
+                }
+            }
+        }
+    })
+}
 export const createMenuItemService = async (menuItem:any):Promise<string | null>  => {
     await db.insert(tableMenuItem).values(menuItem)
     return "menuItem created successfully";

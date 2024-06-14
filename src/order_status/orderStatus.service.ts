@@ -17,7 +17,29 @@ export const getOrderStatusService = async (id: number) => {
         where: eq(tableOrderStatus.id, id)
     })
 }
-
+//orderStatus data
+export const orderStatusData= async ()  => {
+    return await db.query.tableOrderStatus.findMany({
+        columns:{
+           created_at:true,
+        },with:{
+           orders :{
+                columns:{
+                  actual_delivery_time:true,
+                  delivery_address_id:true,
+                  price:true,
+                  created_at:true,
+                  comment:true
+                }
+            },
+            status_catalog:{
+                columns:{
+                   name:true
+                }
+            }
+        }
+    })
+}
 export const createOrderStatusService = async (orderStatus:any):Promise<string | null>  => {
     await db.insert(tableOrderStatus).values(orderStatus)
     return "orderStatus created successfully";

@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { restaurantService, getRestaurantService, createRestaurantService, updateRestaurantService, deleteRestaurantService,getRestaurantAndOwner} from "./restaurant.service";
+import { restaurantService, getRestaurantService, createRestaurantService, updateRestaurantService, deleteRestaurantService,restaurantData} from "./restaurant.service";
 
 export const listRestaurant = async (c: Context) => {
     try {
@@ -27,10 +27,10 @@ export const getRestaurant = async (c: Context) => {
     }
     return c.json(restaurant, 200);
 }
-//left join
-export const RestaurantAndOwner = async (c: Context) => {
+//restaurant data
+export const getRestaurantData = async (c: Context) => {
     try {
-      const result = await getRestaurantAndOwner();
+      const result = await restaurantData();
       return c.json(result, 200);
     } catch (error:any) {
       return c.json({ error: error?.message }, 500);

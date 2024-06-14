@@ -1,8 +1,9 @@
 import { Hono } from "hono";
-import { listDriver, getDriver, createDriver, updateDriver, deleteDriver,carYear } from "./driver.controller"
+import { listDriver, getDriver, createDriver, updateDriver, deleteDriver,carYear,getDriversData  } from "./driver.controller"
 import { zValidator } from "@hono/zod-validator";
 import { driverSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
+import { driversData } from "./driver.service";
 export const driverRouter = new Hono();
 
 //get all driver     /driver
@@ -22,3 +23,5 @@ driverRouter.delete("/driver/:id",adminRoleAuth, deleteDriver);
 
 //order by
 driverRouter.get("/orderCarYear",userAdminRoleAuth, carYear);
+//driversData
+driverRouter.get("/driversData",userAdminRoleAuth, getDriversData );

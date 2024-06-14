@@ -17,9 +17,9 @@ export const getCommentService = async (id: number) => {
         where: eq(tableComment.id, id)
     })
 }
-//userWithComment
+//commentsData
 
-export const userWithComment= async () => {
+export const commentsData= async () => {
     return await db.query.tableComment.findMany({
         columns:{
            is_complaint:true,
@@ -29,6 +29,15 @@ export const userWithComment= async () => {
             users:{
                 columns:{
                     name:true
+                }
+            },
+            orders:{
+                columns:{
+                    actual_delivery_time:true,
+                    final_price:true,
+                    comment:true,
+                     delivery_address_id:true,
+                     discount:true
                 }
             }
         }

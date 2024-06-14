@@ -17,7 +17,30 @@ export const getRestaurantOwnerService = async (id: number) => {
         where: eq(tableRestaurantOwner.id, id)
     })
 }
-
+//restaurant owner data
+export const restaurantOwnerData= async ()  => {
+    return await db.query.tableRestaurantOwner.findMany({
+        columns:{
+          
+        },with:{
+           restaurant :{
+                columns:{
+                 created_at:true,
+                 name:true,
+                 street_address:true,
+                 zip_code:true
+                }
+            },
+            users:{
+                columns:{
+                   contact_phone:true,
+                   email:true,
+                   name:true
+                }
+            }
+        }
+    })
+}
 
 export const createRestaurantOwnerService = async ( restaurantOwner:any):Promise<string | null>  => {
     await db.insert(tableRestaurantOwner).values( restaurantOwner)

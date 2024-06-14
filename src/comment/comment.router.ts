@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listComment, getComment, createComment, updateComment, deleteComment,commentWithUsers } from "./comment.controller"
+import { listComment, getComment, createComment, updateComment, deleteComment,getCommentsData  } from "./comment.controller"
 import { zValidator } from "@hono/zod-validator";
 import { commentSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -19,5 +19,5 @@ commentRouter.post("/comment",zValidator('json',commentSchema,(result,c) =>{
 commentRouter.put("/comment/:id",userRoleAuth, updateComment);
 commentRouter.delete("/comment/:id",adminRoleAuth, deleteComment);
 //get all comment with users
-commentRouter.get("/commentWithUsers",userAdminRoleAuth,commentWithUsers);
+commentRouter.get("/commentsData ",userAdminRoleAuth,getCommentsData );
 

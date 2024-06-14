@@ -23,7 +23,31 @@ export const descCarYear = async () => {
     const orderCarYear =await db.select().from(tableDriver).orderBy(sql`${tableDriver.car_year} desc `);
     return orderCarYear;
 }
+//drivers data
 
+export const driversData= async () => {
+    return await db.query.tableDriver.findMany({
+        columns:{
+          online:true,
+          delivering:true,
+          car_make:true
+        },with:{
+            users:{
+                columns:{
+                    name:true,
+                    contact_phone:true,
+                }
+            },
+            orders:{
+                columns:{
+                    actual_delivery_time:true,
+                    comment:true,
+                    delivery_address_id:true
+                }
+            }
+        }
+    })
+}
 export const createDriverService = async (driver:any):Promise<string | null>  => {
     await db.insert(tableDriver).values(driver)
     return "driver created successfully";

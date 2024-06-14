@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { categoryService, getCategoryService, createCategoryService, updateCategoryService, deleteCategoryService,categoryWithMenuItems } from "./category.service";
+import { categoryService, getCategoryService, createCategoryService, updateCategoryService, deleteCategoryService,categoryData } from "./category.service";
 
 export const listCategory = async (c: Context) => {
     try {
@@ -28,11 +28,11 @@ export const getCategory = async (c: Context) => {
     return c.json(category, 200);
 }
 //category and menu items
-export const categoryWithItems = async (c: Context) => {
+export const getCategoryData= async (c: Context) => {
     try {
-        const data= await categoryWithMenuItems();
+        const data= await categoryData();
         if (data == null || data.length == 0){
-        return c.text("category not found", 404);
+        return c.text("categorydata not found", 404);
         }
         return c.json(data,200);
     } catch (error: any) {

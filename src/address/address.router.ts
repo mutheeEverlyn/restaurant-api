@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listAddress, getAddress, createAddress, updateAddress, deleteAddress,limit,getAddressWithOrders } from "./address.controller"
+import { listAddress, getAddress, createAddress, updateAddress, deleteAddress,limit,getAddressData } from "./address.controller"
 import { zValidator } from "@hono/zod-validator";
 import { addressSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -22,5 +22,5 @@ addressRouter.delete("/address/:id",adminRoleAuth, deleteAddress)
 
 //https:domai.com/address?limit=10
 addressRouter.get("/limitAddress",userAdminRoleAuth, limit);
-//address with orders
-addressRouter.get("/addressWithOrders",adminRoleAuth, getAddressWithOrders );
+//address data
+addressRouter.get("/addressData",adminRoleAuth, getAddressData );

@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { statusCatalogService, getStatusCatalogService, createStatusCatalogService, updateStatusCatalogService, deleteStatusCatalogService,withStatusCatalog } from "./statusCatalog.service";
+import { statusCatalogService, getStatusCatalogService, createStatusCatalogService, updateStatusCatalogService, deleteStatusCatalogService,statusCatalogData } from "./statusCatalog.service";
 
 export const listStatusCatalog= async (c: Context) => {
     try {
@@ -30,7 +30,7 @@ export const getStatusCatalog = async (c: Context) => {
 //with
 export const statusCatalog= async (c: Context) => {
     try {
-        const data = await withStatusCatalog();
+        const data = await statusCatalogData();
         if (data == null || data.length == 0) {
             return c.text("withStatusCatalog not found", 404)
         }

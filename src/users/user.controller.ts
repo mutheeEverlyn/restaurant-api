@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { usersService, getUserService, createUserService, updateUserService, deleteUserService ,emailVerified} from "./user.service";
+import { usersService, getUserService, createUserService, updateUserService, deleteUserService ,emailVerified,usersData} from "./user.service";
 
 export const listUsers = async (c: Context) => {
     try {
@@ -20,6 +20,15 @@ export const listUsers = async (c: Context) => {
 export const emailVerifiedTrue= async (c: Context) => {
     try {
         const data = await emailVerified();
+        return c.json(data, 200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
+}
+//users data
+export const getUsersData= async (c: Context) => {
+    try {
+        const data = await usersData();
         return c.json(data, 200);
     } catch (error: any) {
         return c.json({ error: error?.message }, 400)

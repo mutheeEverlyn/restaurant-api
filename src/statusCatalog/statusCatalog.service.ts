@@ -18,10 +18,17 @@ export const getStatusCatalogService = async (id: number)  => {
     })
 }
 //with
-export const withStatusCatalog = async () => {
+export const statusCatalogData = async () => {
     return await db.query.tableStatusCatalog.findMany({
+        columns:{
+              name:true
+        },
         with:{
-            order_status:true
+            order_status:{
+                columns:{
+                    created_at:true
+                }
+            }
         },
     })
     

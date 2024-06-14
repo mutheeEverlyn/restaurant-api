@@ -17,19 +17,26 @@ export const getOrderMenuItemService = async (id: number) => {
         where: eq(tableOrderMenuItem.id, id)
     })
 }
-//orderMenuItem  -order
-export const orderMenuItemWithMenuItem= async ()  => {
+//orderMenuItem  data
+export const orderMenuItemData= async ()  => {
     return await db.query.tableOrderMenuItem.findMany({
         columns:{
           item_price:true,
-          quantity:true,
-          order_id:true
+          quantity:true
         },with:{
             menu_item:{
                 columns:{
                    active:true,
                    name:true,
                    price:true
+                }
+            },
+            orders:{
+                columns:{
+                    actual_delivery_time:true,
+                    comment:true,
+                    delivery_address_id:true,
+                    price:true
                 }
             }
         }

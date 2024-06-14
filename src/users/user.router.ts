@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listUsers, getUser, createUser, updateUser, deleteUser,emailVerifiedTrue } from "./user.controller"
+import { listUsers, getUser, createUser, updateUser, deleteUser,emailVerifiedTrue,getUsersData } from "./user.controller"
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
 import { zValidator } from "@hono/zod-validator";
 import { userSchema } from "../validators";
@@ -7,6 +7,8 @@ export const userRouter = new Hono();
 
 //get all users      api/users
 userRouter.get("/users",adminRoleAuth, listUsers);
+//get users data
+userRouter.get("/usersData",adminRoleAuth, getUsersData);
 //get a single user    api/users/1
 userRouter.get("/users/:id",userAdminRoleAuth, getUser); 
 //get email verified

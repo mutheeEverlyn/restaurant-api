@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { orderStatusService, getOrderStatusService, createOrderStatusService, updateOrderStatusService, deleteOrderStatusService } from "./orderStatus.service";
+import { orderStatusService, getOrderStatusService, createOrderStatusService, updateOrderStatusService, deleteOrderStatusService,orderStatusData } from "./orderStatus.service";
 
 export const listOrderStatus= async (c: Context) => {
     try {
@@ -26,6 +26,18 @@ export const getOrderStatus = async (c: Context) => {
         return c.text("orderstatus not found", 404);
     }
     return c.json(orderStatus, 200);
+}
+//orderStatus data
+export const getOrderStatusData= async (c: Context) => {
+    try {
+        const data= await orderStatusData();
+        if (data == null || data.length == 0){
+        return c.text("orderStatusData not found", 404);
+        }
+        return c.json(data,200);
+    } catch (error: any) {
+        return c.json({ error: error?.message }, 400)
+    }
 }
 export const createOrderStatus = async (c: Context) => {
     try {

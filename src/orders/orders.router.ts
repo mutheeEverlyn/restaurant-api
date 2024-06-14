@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listOrders, getOrders, createOrders, updateOrders, deleteOrders,priceOrders } from "./orders.controller"
+import { listOrders, getOrders, createOrders, updateOrders, deleteOrders,priceOrders,Orders } from "./orders.controller"
 import { zValidator } from "@hono/zod-validator";
 import { ordersSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -7,6 +7,8 @@ export const ordersRouter = new Hono();
 
 //get all orders     orders
 ordersRouter.get("/orders",adminRoleAuth, listOrders);
+//get orders with important info
+ordersRouter.get("/orderData",adminRoleAuth, Orders);
 //get a single order   orders/1
 ordersRouter.get("/orders/:id",userAdminRoleAuth, getOrders)
 // create an order

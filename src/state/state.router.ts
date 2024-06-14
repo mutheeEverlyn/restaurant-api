@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listState, getState, createState, updateState, deleteState,stateColumns} from "./state.controller"
+import { listState, getState, createState, updateState, deleteState,getStateData} from "./state.controller"
 import { zValidator } from "@hono/zod-validator";
 import { stateSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -20,4 +20,4 @@ stateRouter.put("/state/:id",adminRoleAuth, updateState);
 
 stateRouter.delete("/state/:id",adminRoleAuth, deleteState);
 //get state columns
-stateRouter.get("/stateWithColumns",userAdminRoleAuth, stateColumns);
+stateRouter.get("/stateData",userAdminRoleAuth, getStateData);

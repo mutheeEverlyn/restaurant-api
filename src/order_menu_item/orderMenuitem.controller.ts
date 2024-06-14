@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { orderMenuItemService, getOrderMenuItemService, createOrderMenuItemService, updateOrderMenuItemService, deleteOrderMenuItemService,orderMenuItemWithMenuItem } from "./orderMenuItem.service";
+import { orderMenuItemService, getOrderMenuItemService, createOrderMenuItemService, updateOrderMenuItemService, deleteOrderMenuItemService,orderMenuItemData } from "./orderMenuItem.service";
 import { ordermenuItem } from "../drizzle/schema";
 
 export const listOrderMenuItem = async (c: Context) => {
@@ -27,11 +27,11 @@ export const getOrderMenuItem = async (c: Context) => {
     return c.json(orderMenuItem, 200);
 }
 //orderMenuItem With menuItem
-export const getorderMenuItemWithMenuItem= async (c: Context) => {
+export const getOrderMenuItemData= async (c: Context) => {
     try {
-        const data= await orderMenuItemWithMenuItem();
+        const data= await orderMenuItemData();
         if (data == null || data.length == 0){
-        return c.text("orderMenuItemWithMenuItem not found", 404);
+        return c.text("orderMenuItemData not found", 404);
         }
         return c.json(data,200);
     } catch (error: any) {

@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { cityService, getCityService, createCityService, updateCityService, deleteCityService,cityNameLike,cityWithRestaurant} from "./city.service";
+import { cityService, getCityService, createCityService, updateCityService, deleteCityService,cityNameLike,cityData} from "./city.service";
 
 export const listCity= async (c: Context) => {
     try {
@@ -42,11 +42,11 @@ export const namesLike= async (c: Context) => {
     }
     }
 //city-restaurants
-export const getCityWithRestaurant= async (c: Context) => {
+export const getCityData= async (c: Context) => {
     try {
-        const data= await cityWithRestaurant();
+        const data= await cityData();
         if (data == null ){
-        return c.text("cityWithRestaurant not found", 404);
+        return c.text("cityData not found", 404);
         }
         return c.json(data,200);
     } catch (error: any) {

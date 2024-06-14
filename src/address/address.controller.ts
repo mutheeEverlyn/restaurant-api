@@ -1,10 +1,8 @@
 import { Context } from "hono";
-import { addressService, getAddressService, createAddressService, updateAddressService, deleteAddressService,limitAddress,addressWithOrders } from "./address.service";
+import { addressService, getAddressService, createAddressService, updateAddressService, deleteAddressService,limitAddress,addressData } from "./address.service";
 
 export const listAddress = async (c: Context) => {
     try {
-        //limit the number of Address to be returned
-
         const limit = Number(c.req.query('limit'))
 
         const data = await addressService(limit);
@@ -41,12 +39,12 @@ export const limit=async(c: Context) =>{
     return c.json({ error: error?.message }, 400)
 }
 }
-//address with orders
-export const getAddressWithOrders = async (c: Context) => {
+//address data
+export const getAddressData = async (c: Context) => {
     try {
-        const data= await addressWithOrders();
+        const data= await addressData();
         if (data == null || data.length == 0){
-        return c.text("addressWithOrders not found", 404);
+        return c.text("addressdata not found", 404);
         }
         return c.json(data,200);
     } catch (error: any) {

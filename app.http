@@ -1,22 +1,37 @@
 
 GET http://localhost:8000/ok/
 ###
-GET http://eveapi.azurewebsites.net/withStatusCatalog
+GET http://eveapi.azurewebsites.net/statusCatalogData
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://eveapi.azurewebsites.net/stateWithColumns
+GET http://eveapi.azurewebsites.net/orderData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://eveapi.azurewebsites.net/usersData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://eveapi.azurewebsites.net/stateData
 Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://localhost:8000/addressWithOrders
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
-###
-GET http://localhost:8000/orderItem
+GET http://localhost:8000/addressData
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://localhost:8000/cityWithRestaurant
+GET http://localhost:8000/driversData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE  
+###
+GET http://localhost:8000/menuItemData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE  
+###
+GET http://localhost:8000/orderMenuItemData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://localhost:8000/orderStatusData
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://localhost:8000/cityData
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE 
 ###
-GET http://eveapi.azurewebsites.net/commentWithUsers
+GET http://eveapi.azurewebsites.net/commentsData
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/categoryWithMenuItems
@@ -38,7 +53,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5j
 GET http://eveapi.azurewebsites.net/orderPrice?price=500
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
-GET http://eveapi.azurewebsites.net/restaurantAndOwners
+GET http://eveapi.azurewebsites.net/restaurantData
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
+###
+GET http://eveapi.azurewebsites.net/restaurantOwnerData
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrYXJlbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgzNzA3MDl9.2MNPQX5C7--lQx2gTqzBfUnRHBsWKyhasMUIF-8WxsE
 ###
 GET http://eveapi.azurewebsites.net/comment

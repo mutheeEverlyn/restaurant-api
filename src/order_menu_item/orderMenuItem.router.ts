@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listOrderMenuItem, getOrderMenuItem, createOrderMenuItem, updateOrderMenuItem, deleteOrderMenuItem,getorderMenuItemWithMenuItem} from "./orderMenuitem.controller"
+import { listOrderMenuItem, getOrderMenuItem, createOrderMenuItem, updateOrderMenuItem, deleteOrderMenuItem,getOrderMenuItemData} from "./orderMenuitem.controller"
 import { zValidator } from "@hono/zod-validator";
 import { orderMenuItemSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -20,4 +20,4 @@ orderMenuItemRouter.put("/orderMenuItem/:id",adminRoleAuth, updateOrderMenuItem)
 
 orderMenuItemRouter.delete("/orderMenuItem/:id", adminRoleAuth,deleteOrderMenuItem)
 //get orderMenuItem with menuItem
-orderMenuItemRouter.get("/orderItem",adminRoleAuth,getorderMenuItemWithMenuItem );
+orderMenuItemRouter.get("/orderMenuItemData",adminRoleAuth,getOrderMenuItemData );

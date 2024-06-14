@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { commentService, getCommentService, createCommentService, updateCommentService, deleteCommentService,userWithComment} from "./comment.service";
+import { commentService, getCommentService, createCommentService, updateCommentService, deleteCommentService,commentsData} from "./comment.service";
 
 export const listComment = async (c: Context) => {
     try {
@@ -25,12 +25,12 @@ export const getComment = async (c: Context) => {
     }
     return c.json(comment, 200);
 }
-//with columns
-export const commentWithUsers = async (c: Context) => {
+//commentsData
+export const getCommentsData = async (c: Context) => {
     try {
-        const data= await userWithComment();
+        const data= await commentsData();
         if (data == null || data.length == 0){
-        return c.text("commentsWithUsers not found", 404);
+        return c.text("commentsData not found", 404);
         }
         return c.json(data,200);
     } catch (error: any) {

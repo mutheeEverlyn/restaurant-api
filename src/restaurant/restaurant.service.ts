@@ -17,16 +17,45 @@ export const getRestaurantService = async (id: number) => {
         where: eq(tableRestaurant.id, id)
     })
 }
-//getting restaurants and their owners
-export const getRestaurantAndOwner = async () => {
-    return await db
-      .select({
-        restaurant: tableRestaurant,
-        owner: tableRestaurantOwner,
-      })
-      .from(tableRestaurant)
-      .leftJoin(tableRestaurantOwner, eq(tableRestaurant.id, tableRestaurantOwner.restaurant_id));
-  };
+//getting restaurants data
+export const restaurantData= async ()  => {
+    return await db.query.tableRestaurant.findMany({
+        columns:{
+           name:true,
+           street_address:true,
+           zip_code:true,
+           created_at:true
+        },with:{
+           orders :{
+                columns:{
+                  actual_delivery_time:true,
+                  delivery_address_id:true,
+                  price:true,
+                  created_at:true,
+                  comment:true
+                }
+            },
+            city:{
+                columns:{
+                name:true,
+                address:true
+                }
+            },
+            menu_item:{
+                columns:{
+                    active:true,
+                    description:true,
+                    name:true,
+                    ingredients:true,
+                    price:true,
+                    created_at:true,
+                     updated_at:true
+                }
+            }
+        }
+    })
+}
+
 
 export const createRestaurantService = async (restaurant:any):Promise<string | null>  => {
     await db.insert(tableRestaurant).values(restaurant)

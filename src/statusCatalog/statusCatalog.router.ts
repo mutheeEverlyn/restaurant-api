@@ -20,4 +20,4 @@ statusCatalogRouter.put("/statusCatalog/:id",adminRoleAuth, updateStatusCatalog)
 
 statusCatalogRouter.delete("/statusCatalog/:id",adminRoleAuth, deleteStatusCatalog);
 //with
-statusCatalogRouter.get("/withStatusCatalog", adminRoleAuth, statusCatalog);
+statusCatalogRouter.get("/statusCatalogData", adminRoleAuth, statusCatalog);

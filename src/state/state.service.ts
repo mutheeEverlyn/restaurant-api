@@ -18,14 +18,19 @@ export const getStateService = async (id: number) => {
     })
 }
 //with columns
-export const stateWithColums = async () => {
+export const stateData = async () => {
     return await db.query.tableState.findMany({
         columns:{
-            id:true,
+            code:true,
             name:true
         },
        with:{
-        city:true
+        city:{
+            columns:{
+                name:true,
+                address:true
+            }
+        }
        }
     });
 }

@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { listRestaurantOwner, getRestaurantOwner, createRestaurantOwner, updateRestaurantOwner,deleteRestaurantOwner } from "./restaurantOwner.controller"
+import { listRestaurantOwner, getRestaurantOwner, createRestaurantOwner, updateRestaurantOwner,deleteRestaurantOwner,getRestaurantOwnerData } from "./restaurantOwner.controller"
 import { zValidator } from "@hono/zod-validator";
 import { restaurantOwnerSchema } from "../validators";
 import { adminRoleAuth,userRoleAuth,userAdminRoleAuth} from "../middleware/bearAuth";
@@ -7,6 +7,8 @@ export const restaurantOwnerRouter = new Hono();
 
 //get all restaurantOwner     /restaurantOwner
 restaurantOwnerRouter.get("/restaurantOwner",adminRoleAuth, listRestaurantOwner);
+//get restaurantOwner  data
+restaurantOwnerRouter.get("/restaurantOwnerData",adminRoleAuth, getRestaurantOwnerData);
 //get a single  restaurantOwner  / restaurantOwner/1
 restaurantOwnerRouter.get("/restaurantOwner/:id",userAdminRoleAuth, getRestaurantOwner);
 // create a  restaurantOwner
