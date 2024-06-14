@@ -51,6 +51,101 @@ app.use('*', registerMetrics)
 
 
 // default route
+app.get('/',(c) =>{
+  return c.html(`
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Restaurant API</h1>
+    </header>
+    <div class="container">
+        <h2>About</h2>
+        <p>My API helps you access information about a Restaurant information from the database.</p>
+        
+        <h2>Features of m API</h2>
+        <ul>
+            <li>Easy to integrate</li>
+            <li>Fast and reliable</li>
+            <li>Secure and scalable</li>
+        </ul>
+
+        <h2>viewing data in orders</h2>
+        <a href="http://eveapi.azurewebsites.net/orderData" class="btn">view data  </a>
+
+        <h2>viewing data in the status catalog</h2>
+        <a href="http://eveapi.azurewebsites.net/statusCatalogData" class="btn">View data in status catalog</a>
+        <h2>viewing data in users</h2>
+        <a href="http://eveapi.azurewebsites.net/usersData" class="btn">view data </a>
+        <h2>viewing data in state</h2>
+        <a href="http://eveapi.azurewebsites.net/stateData" class="btn">view data </a>
+        <h2>viewing data in address</h2>
+        <a href="http://eveapi.azurewebsites.net/addressData" class="btn">view data </a>
+        <h2>viewing data in drivers</h2>
+        <a href="http://eveapi.azurewebsites.net/driverssData" class="btn">view data </a>
+        <h2>viewing data in users</h2>
+        <a href="http://eveapi.azurewebsites.net/usersData" class="btn">view data </a>
+    </div>
+    <footer>
+        <p>&copy; Everlyn Muthoni API. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+    `)
+})
 app.get('/ok', (c) => {
   return c.text('The server is running!')
 })
