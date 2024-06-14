@@ -23,7 +23,7 @@ export const limitAddress = async (limit: number):Promise<tsAddress[] | null> =>
   };
 //address data
 
-export const addressData= async () => {
+export const addressData= async ()  => {
     return await db.query.tableAddress.findMany({
         columns:{
            city_id:true,
