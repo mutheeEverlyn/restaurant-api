@@ -181,7 +181,7 @@ app.get('/',(c) =>{
         <h2>viewing data in driversData</h2>
         <a href="http://eveapi.azurewebsites.net/driversData" class="btn">view data  </a>
         <h2>viewing data in the status catalog</h2>
-        <a href="http://eveapi.azurewebsites.net/statusCatalogData" class="btn">View data in status catalog</a>
+        <a href="http://eveapi.azurewebsites.net/statusCatalogData" class="btn">View data</a>
         <h2>viewing data in users</h2>
         <a href="http://eveapi.azurewebsites.net/usersData" class="btn">view data </a>
         <h2>viewing data in state</h2>
