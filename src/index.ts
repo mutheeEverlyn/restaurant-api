@@ -124,7 +124,7 @@ app.get('/',(c) =>{
             <li>Fast and reliable</li>
             <li>Secure and scalable</li>
         </ul>
-        <h2>please regiter here</h2>
+        <h2>please regiter here to get the token to access data</h2>
         <a href="http://eveapi.azurewebsites.net/register" class="btn">register </a>
         <h2>click to login</h2>
         <a href="http://eveapi.azurewebsites.net/login" class="btn">login </a>
