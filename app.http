@@ -157,9 +157,9 @@ POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-     "userId":4,
-     "email":"gat#@gmail.com",
-    "password":"4567",
+     "userId":6,
+     "email":"junevamdee@gmail.com",
+    "password":"39886263",
     "role":"user"
 }
 
@@ -168,6 +168,6 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email":"gat#@gmail.com",
-    "password":"4567"
+    "email":"junevamdee@gmail.com",
+    "password":"39886263"
 }
