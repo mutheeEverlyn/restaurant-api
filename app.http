@@ -158,7 +158,7 @@ Content-Type: application/json
 
 {
      "userId":6,
-     "email":"junevamdee@gmail.com",
+     "email":"muthee.14952@kyu.ac.ke",
     "password":"39886263",
     "role":"user"
 }
@@ -168,6 +168,6 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email":"junevamdee@gmail.com",
+    "email":"muthee.14952@kyu.ac.ke",
     "password":"39886263"
 }
