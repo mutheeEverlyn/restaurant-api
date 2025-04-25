@@ -1,6 +1,10 @@
+# How to use 
+
+# git clone "repo url"
+
 ```
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ```
